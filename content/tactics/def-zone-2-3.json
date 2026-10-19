@@ -1,0 +1,759 @@
+{
+  "id": "def-zone-2-3",
+  "slug": "zona-2-3",
+  "title": { "id": "Zona 2-3", "en": "2-3 Zone Defense" },
+  "category": "defense",
+  "level": 2,
+  "court": "half",
+  "duration": 6,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "Dua bek di atas dan tiga bek di bawah menjaga AREA, bukan orang: setiap pergerakan bola memicu pergeseran yang sudah disepakati."
+  },
+  "whenToUse": {
+    "id": "Saat ingin melindungi paint dan rebound, menyembunyikan bek yang lemah bertahan satu lawan satu, atau memaksa lawan menembak dari luar."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": 0, "y": 8.2, "facing": 0 },
+      "hasBall": true
+    },
+    { "id": "O2", "team": "offense", "role": "SG", "start": { "x": 5.6, "y": 5, "facing": 0 } },
+    {
+      "id": "O3",
+      "team": "offense",
+      "role": "SF",
+      "start": { "x": 6.6, "y": 0.6, "facing": 0 }
+    },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": -6.6, "y": 0.6, "facing": 0 }
+    },
+    { "id": "O5", "team": "offense", "role": "C", "start": { "x": 0, "y": 4.4, "facing": 180 } },
+    { "id": "X1", "team": "defense", "start": { "x": -1.7, "y": 6.4, "facing": 180 } },
+    { "id": "X2", "team": "defense", "start": { "x": 1.7, "y": 6.4, "facing": 180 } },
+    { "id": "X3", "team": "defense", "start": { "x": -3.8, "y": 1.6, "facing": 180 } },
+    { "id": "X4", "team": "defense", "start": { "x": 3.8, "y": 1.6, "facing": 180 } },
+    { "id": "X5", "team": "defense", "start": { "x": 0, "y": 2, "facing": 180 } }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Bola di top" },
+      "tStart": 0,
+      "tEnd": 1.4,
+      "narration": {
+        "id": "X1 dan X2 menekan bola bersama-sama. X3 dan X4 siaga di block, X5 melindungi paint."
+      },
+      "focus": [
+        "X1",
+        "X2"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Bola ke wing" },
+      "tStart": 1.4,
+      "tEnd": 3,
+      "narration": {
+        "id": "X2 menekan bola di wing kanan. X1 turun ke elbow, X4 mengambil block sisi bola, X5 geser ke sisi bola."
+      },
+      "focus": [
+        "X2",
+        "X1",
+        "X4",
+        "X5"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Bola ke sudut" },
+      "tStart": 3,
+      "tEnd": 4.4,
+      "narration": {
+        "id": "X4 keluar menekan sudut. X5 turun ke low post sisi bola, dan X2 menutup jalur umpan balik ke wing."
+      },
+      "focus": [
+        "X4",
+        "X5",
+        "X2"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Flash high post" },
+      "tStart": 4.4,
+      "tEnd": 6,
+      "narration": {
+        "id": "Penyerang flash ke high post. X5 naik menekan, X1 menutup dari belakang — tidak ada yang boleh bebas di tengah."
+      },
+      "focus": [
+        "X5",
+        "X1"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-pass-wing",
+      "t": 1.4,
+      "dur": 0.4,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O2",
+      "label": "Umpan ke wing"
+    },
+    {
+      "id": "e-x2-press",
+      "t": 1.5,
+      "dur": 1.2,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[1.7, 6.4], [3.2, 6], [4.7, 5.4]],
+      "speed": "slide",
+      "label": "Tekan bola di wing"
+    },
+    {
+      "id": "e-x1-elbow",
+      "t": 1.6,
+      "dur": 1.2,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[-1.7, 6.4], [-0.7, 5.9], [0.3, 5.3]],
+      "speed": "slide",
+      "label": "Turun ke elbow"
+    },
+    {
+      "id": "e-x4-block",
+      "t": 1.6,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X4",
+      "path": [[3.8, 1.6], [3.4, 1.9], [3, 2.3]],
+      "speed": "slide",
+      "label": "Ambil block sisi bola"
+    },
+    {
+      "id": "e-x5-slide",
+      "t": 1.7,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[0, 2], [0.8, 1.8], [1.6, 1.7]],
+      "speed": "slide",
+      "label": "Geser ke sisi bola"
+    },
+    {
+      "id": "e-pass-corner",
+      "t": 3,
+      "dur": 0.45,
+      "type": "pass",
+      "actor": "O2",
+      "target": "O3",
+      "label": "Umpan ke sudut"
+    },
+    {
+      "id": "e-x4-closeout",
+      "t": 3.2,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X4",
+      "path": [[3, 2.3], [4.6, 1.5], [5.9, 1.1]],
+      "speed": "sprint",
+      "label": "Closeout ke sudut"
+    },
+    {
+      "id": "e-x5-lowpost",
+      "t": 3.3,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[1.6, 1.7], [2.3, 1.2], [2.9, 0.9]],
+      "speed": "slide",
+      "label": "Turun ke low post sisi bola"
+    },
+    {
+      "id": "e-x2-deny",
+      "t": 3.4,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[4.7, 5.4], [5, 4.2], [5.1, 3.1]],
+      "speed": "slide",
+      "label": "Tutup umpan balik ke wing"
+    },
+    {
+      "id": "e-o5-flash",
+      "t": 4.4,
+      "dur": 1,
+      "type": "cut",
+      "actor": "O5",
+      "path": [[0, 4.4], [1.3, 4.6], [2.5, 4.6]],
+      "speed": "jog",
+      "label": "Flash ke high post"
+    },
+    {
+      "id": "e-x5-up",
+      "t": 4.8,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[2.9, 0.9], [2.8, 2.4], [2.7, 3.7]],
+      "speed": "sprint",
+      "label": "Naik menekan high post"
+    },
+    {
+      "id": "e-x1-behind",
+      "t": 4.9,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[0.3, 5.3], [0.9, 3.9], [1.5, 2.5]],
+      "speed": "sprint",
+      "label": "Tutup dari belakang"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 4.9,
+      "owner": "X5",
+      "cue": {
+        "id": "Penyerang flash ke high post di sisi bola. Siapa yang menekan, dan siapa yang menutup ring di belakangnya?"
+      },
+      "options": [
+        {
+          "id": "o-up-and-behind",
+          "label": { "id": "X5 naik menekan, X1 menutup belakang" },
+          "correct": true,
+          "explain": {
+            "id": "Inilah pergeseran yang benar: center naik menekan high post, dan guard sisi itu turun menutup ring. Dua tugas, dua bek — tidak ada lubang."
+          },
+          "branchId": "b-out-correct",
+          "correctWhen": "Flash ke high post sisi bola",
+          "targetPlayer": "X5"
+        },
+        {
+          "id": "o-stay",
+          "label": { "id": "X5 tetap di low post" },
+          "correct": false,
+          "explain": {
+            "id": "Membiarkan high post bebas berarti memberi pengumpan pandangan penuh ke seluruh zona. Dari sana setiap umpan jadi mudah."
+          },
+          "branchId": "b-out-stay",
+          "targetPlayer": "X5"
+        },
+        {
+          "id": "o-both-up",
+          "label": { "id": "X5 dan X1 sama-sama naik" },
+          "correct": false,
+          "explain": {
+            "id": "Dua bek ke satu bola berarti ring tanpa penjaga. Zona runtuh justru karena dua orang mengerjakan satu tugas."
+          },
+          "branchId": "b-out-both-up",
+          "targetPlayer": "X1"
+        },
+        {
+          "id": "o-x2-leave",
+          "label": { "id": "X2 meninggalkan sudut untuk menekan post" },
+          "correct": false,
+          "explain": {
+            "id": "X2 bertanggung jawab atas jalur umpan balik ke wing. Meninggalkannya berarti bola bisa keluar dan zona harus bergeser dari nol."
+          },
+          "targetPlayer": "X2"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-out-correct",
+      "group": "outcome",
+      "label": { "id": "Naik + tutup belakang" },
+      "fromT": 4.8,
+      "replaces": [],
+      "events": [
+        {
+          "id": "boc-x5-up",
+          "t": 4.8,
+          "dur": 1.1,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[2.9, 0.9], [2.8, 2.4], [2.7, 3.7]],
+          "speed": "sprint",
+          "label": "Naik menekan"
+        },
+        {
+          "id": "boc-x1-behind",
+          "t": 4.9,
+          "dur": 1.1,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[0.3, 5.3], [0.9, 3.9], [1.5, 2.5]],
+          "speed": "sprint",
+          "label": "Tutup ring"
+        }
+      ],
+      "counter": {
+        "id": "Pergeseran ini menutup high post tanpa membuka ring. Serangan harus mencari short corner atau skip pass."
+      },
+      "outcome": "good-look"
+    },
+    {
+      "id": "b-out-stay",
+      "group": "outcome",
+      "label": { "id": "X5 tetap di low post" },
+      "fromT": 4.8,
+      "replaces": [
+        "e-x5-up",
+        "e-x1-behind"
+      ],
+      "events": [
+        {
+          "id": "bos-x5-stay",
+          "t": 4.8,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[2.9, 0.9], [2.8, 1.1], [2.7, 1.2]],
+          "speed": "slide",
+          "label": "High post dibiarkan bebas",
+          "wrong": true
+        },
+        {
+          "id": "bos-o5-shoot",
+          "t": 5.2,
+          "dur": 0.8,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Tembakan bebas dari high post",
+          "made": true
+        }
+      ],
+      "outcome": "turnover"
+    },
+    {
+      "id": "b-out-both-up",
+      "group": "outcome",
+      "label": { "id": "Dua bek sama-sama naik" },
+      "fromT": 4.8,
+      "replaces": [
+        "e-x5-up",
+        "e-x1-behind"
+      ],
+      "events": [
+        {
+          "id": "bob-x5-up",
+          "t": 4.8,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[2.9, 0.9], [2.8, 2.6], [2.7, 4]],
+          "speed": "sprint",
+          "label": "Naik menekan"
+        },
+        {
+          "id": "bob-x1-up",
+          "t": 4.9,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[0.3, 5.3], [1.2, 5.2], [2, 5.1]],
+          "speed": "sprint",
+          "label": "Ikut naik — ring kosong",
+          "wrong": true
+        },
+        {
+          "id": "bob-pass-rim",
+          "t": 5.5,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O5",
+          "target": "O4",
+          "label": "Umpan ke ring kosong"
+        }
+      ],
+      "outcome": "turnover"
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "X1",
+      "mission": {
+        "id": "Guard kiri: tekan bola di sisimu, lalu turun ke elbow saat bola berpindah sisi."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": {
+            "id": "Tekan bola bersama X2 saat bola di top. Jangan biarkan pengumpan melihat tengah."
+          }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Bola ke wing KANAN berarti kamu turun ke elbow, bukan mengikuti bola." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Bola ke sudut: tutup jalur umpan balik ke wing di sisimu." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "High post flash: tutup dari BELAKANG saat X5 naik menekan." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Jangan ikut naik. Dua bek ke satu bola berarti ring kosong." }
+        }
+      ],
+      "cues": [
+        { "id": "Di sisi mana bola berada — sisiku atau sisi X2?" },
+        { "id": "Apakah ada penyerang flash ke high post?" },
+        { "id": "Apakah X5 sudah naik? Kalau ya, ring jadi tanggung jawabku." }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "Bola di wing sisiku" }, "thenDo": { "id": "Tekan bola" } },
+        { "ifCue": { "id": "Bola di wing sisi lain" }, "thenDo": { "id": "Turun ke elbow" } },
+        {
+          "ifCue": { "id": "Flash high post + X5 naik" },
+          "thenDo": { "id": "Tutup ring dari belakang" },
+          "branchId": "b-out-correct"
+        }
+      ],
+      "mistakes": [
+        { "id": "Mengikuti bola ke sisi lain dan meninggalkan elbow kosong." },
+        { "id": "Ikut naik bersama X5 sehingga ring tanpa penjaga." },
+        { "id": "Lupa box out karena zona tidak punya lawan jaga tetap." }
+      ],
+      "calls": [
+        "Ball top!",
+        "Elbow!",
+        "Post!",
+        "I got rim!"
+      ]
+    },
+    {
+      "playerId": "X2",
+      "mission": { "id": "Guard kanan: cermin X1. Tekan di sisimu, turun ke elbow di sisi lain." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": {
+            "id": "Tekan bola bersama X1. Dua tangan aktif, jangan sampai ada umpan ke tengah."
+          }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Bola ke wing kananmu: keluar menekan, jangan menunggu." }
+        },
+        { "phaseId": "p3", "text": { "id": "Bola ke sudut: tutup jalur umpan balik ke wing." } },
+        {
+          "phaseId": "p4",
+          "text": {
+            "id": "Tetap di jalur umpan balik meski ada flash high post — itu tugas X5 dan X1."
+          }
+        },
+        { "phaseId": "p4", "text": { "id": "Komunikasikan posisi bola sepanjang possession." } }
+      ],
+      "cues": [
+        { "id": "Di sisi mana bola berada?" },
+        { "id": "Apakah penyerang wing mencoba menerima umpan balik?" }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "Bola di wing sisiku" }, "thenDo": { "id": "Keluar menekan bola" } },
+        {
+          "ifCue": { "id": "Bola di sudut sisiku" },
+          "thenDo": { "id": "Tutup umpan balik ke wing" }
+        },
+        {
+          "ifCue": { "id": "Bola kembali ke top" },
+          "thenDo": { "id": "Kembali menekan bersama X1" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Keluar terlalu jauh ke sudut sehingga wing jadi bebas." },
+        { "id": "Meninggalkan jalur umpan balik untuk menekan post." },
+        { "id": "Berhenti berkomunikasi saat bola berpindah cepat." }
+      ],
+      "calls": [
+        "Ball wing!",
+        "Deny back!",
+        "Shift!"
+      ]
+    },
+    {
+      "playerId": "X3",
+      "mission": { "id": "Forward kiri: jaga sudut dan block kiri, dan tutup baseline dari belakang." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Siaga di block kiri. Lihat bola, rasakan penyerang di belakangmu." }
+        },
+        {
+          "phaseId": "p2",
+          "text": {
+            "id": "Bola di wing kanan: kamu jadi bek sisi lemah — jaga block dan siap rebound."
+          }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Bola di sudut kirimu: keluar menekan dengan langkah pendek." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "High post: tutup baseline di belakang agar tidak ada cut bebas ke ring." }
+        },
+        { "phaseId": "p4", "text": { "id": "Rebound sisi lemah adalah tanggung jawabmu." } }
+      ],
+      "cues": [
+        { "id": "Apakah bola di sudut sisiku?" },
+        { "id": "Apakah ada penyerang di short corner di belakangku?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bola di sudut sisiku" },
+          "thenDo": { "id": "Closeout dengan langkah pendek" }
+        },
+        {
+          "ifCue": { "id": "Bola di sisi lain" },
+          "thenDo": { "id": "Jaga block, siap rebound sisi lemah" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Closeout terlalu dalam sehingga drive baseline terbuka." },
+        { "id": "Melihat bola sampai lupa penyerang di short corner." },
+        { "id": "Tidak box out karena merasa tidak punya lawan jaga." }
+      ],
+      "calls": [
+        "Corner!",
+        "Baseline!",
+        "Rebound!"
+      ]
+    },
+    {
+      "playerId": "X4",
+      "mission": { "id": "Forward kanan: cermin X3 di sisi kanan." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Siaga di block kanan." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Bola ke wing kanan: naik mengambil block sisi bola." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Bola ke sudut kananmu: closeout, tetapi jangan melewati bahu penyerang." }
+        },
+        { "phaseId": "p4", "text": { "id": "High post: tutup baseline, jangan ikut naik." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Setiap closeout harus bisa dibatalkan — jaga keseimbangan." }
+        }
+      ],
+      "cues": [
+        { "id": "Berapa jarak dari block ke sudut sisiku?" },
+        { "id": "Apakah penyerang sudut sudah siap kaki?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bola ke sudut sisiku" },
+          "thenDo": { "id": "Closeout tinggi, tutup tembakan" }
+        },
+        {
+          "ifCue": { "id": "Penyerang sudut drive baseline" },
+          "thenDo": { "id": "Tetap di antara bola dan ring" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Closeout dengan badan rendah sehingga tembakan bebas." },
+        { "id": "Terlambat naik ke block saat bola pindah ke wing sisiku." },
+        { "id": "Meninggalkan baseline terbuka saat menekan post." }
+      ],
+      "calls": [
+        "Corner!",
+        "Closeout!",
+        "Help!"
+      ]
+    },
+    {
+      "playerId": "X5",
+      "mission": { "id": "Center: lindungi paint, geser mengikuti bola, dan naik menekan high post." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Lindungi paint. Kamu adalah titik tumpu zona — jangan terpancing keluar." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Bola ke wing: geser ke sisi bola, tetap di antara bola dan ring." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Bola ke sudut: turun ke low post sisi bola untuk menutup umpan ke dalam." }
+        },
+        {
+          "phaseId": "p4",
+          "text": {
+            "id": "Flash high post: NAIK menekan, dan percayakan ring kepada guard di belakangmu."
+          }
+        },
+        { "phaseId": "p4", "text": { "id": "Setelah tembakan, kamu rebound utama di tengah." } }
+      ],
+      "cues": [
+        { "id": "Di area mana bola berada: top, wing, sudut, atau high post?" },
+        { "id": "Apakah guard sisi bola sudah siap menutup ring di belakangku?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bola di sudut" },
+          "thenDo": { "id": "Turun ke low post sisi bola" }
+        },
+        {
+          "ifCue": { "id": "Flash ke high post" },
+          "thenDo": { "id": "Naik menekan; guard menutup belakang" },
+          "branchId": "b-out-correct"
+        },
+        {
+          "ifCue": { "id": "Tidak ada yang menutup belakang" },
+          "thenDo": { "id": "Tetap di paint dan tekan dari bawah" },
+          "branchId": "b-out-stay"
+        }
+      ],
+      "mistakes": [
+        { "id": "Terpancing keluar ke perimeter sehingga paint terbuka." },
+        { "id": "Membiarkan high post bebas — dari sana pengumpan melihat seluruh zona." },
+        { "id": "Naik menekan tanpa memastikan ada yang menutup ring." }
+      ],
+      "calls": [
+        "Paint!",
+        "Shift!",
+        "Post up!",
+        "Rim is yours!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "Dua bek mengerjakan satu tugas" },
+      "why": {
+        "id": "Zona runtuh bukan karena bek kalah cepat, tetapi karena dua bek pergi ke bola yang sama dan satu area jadi kosong."
+      },
+      "branchId": "b-out-both-up"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "High post dibiarkan bebas" },
+      "why": {
+        "id": "Penyerang di high post melihat seluruh zona. Membiarkannya menerima bola sama dengan memberi pengumpan peta lengkap pertahanan."
+      },
+      "branchId": "b-out-stay"
+    },
+    {
+      "id": "m3",
+      "title": { "id": "Bek mengikuti bola, bukan menjaga area" },
+      "why": {
+        "id": "Zona bekerja lewat pergeseran yang disepakati. Mengikuti bola membuat dua area kosong sekaligus."
+      }
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Tidak ada yang box out" },
+      "why": {
+        "id": "Karena tidak punya lawan jaga tetap, bek zona sering melepaskan rebound. Setiap bek harus mencari badan terdekat saat tembakan dilepas."
+      }
+    },
+    {
+      "id": "m5",
+      "title": { "id": "Berhenti berkomunikasi" },
+      "why": {
+        "id": "Zona adalah lima orang yang bergerak sebagai satu bentuk. Tanpa suara, pergeseran selalu terlambat satu umpan."
+      }
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "Serangan flash ke high post untuk menarik dua bek." },
+      "response": { "id": "X5 naik menekan, guard sisi bola menutup ring dari belakang." },
+      "branchId": "b-out-correct"
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Serangan memakai skip pass sudut ke sudut." },
+      "response": {
+        "id": "Forward sisi lemah harus bersiap lebih dulu; closeout dari block ke sudut selalu terlambat bila baru mulai saat bola di udara."
+      }
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "Serangan overload tiga pemain di satu sisi." },
+      "response": {
+        "id": "Guard sisi lemah turun lebih dalam; terima bahwa sisi kosong harus dijaga lewat pergeseran, bukan lewat orang."
+      }
+    },
+    {
+      "id": "c4",
+      "defense": { "id": "Serangan menembak banyak 3 poin dari sudut." },
+      "response": {
+        "id": "Naikkan tinggi zona satu langkah dan terima lebih banyak risiko di paint, atau ganti ke man-to-man."
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": { "id": "Penyerang flash ke high post sisi bola. Pergeseran mana yang benar?" },
+      "pauseAt": 4.9,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": { "id": "X5 memilih tetap di low post. Apa yang terjadi?" },
+      "pauseAt": 4.9,
+      "setupBranches": [
+        "b-out-stay"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "X5 dan X1 sama-sama naik ke bola. Area mana yang kosong?" },
+      "pauseAt": 4.9,
+      "setupBranches": [
+        "b-out-both-up"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [
+      "zone-vs-2-3"
+    ],
+    "nextUp": []
+  },
+  "terms": [
+    "high-post",
+    "low-block",
+    "short-corner",
+    "closeout",
+    "box-out",
+    "help-side",
+    "strong-side",
+    "skip-pass"
+  ],
+  "origin": {
+    "id": "Zona 2-3 adalah pertahanan zona paling umum di semua level karena bentuknya langsung melindungi paint dan dua sisi rebound."
+  }
+}

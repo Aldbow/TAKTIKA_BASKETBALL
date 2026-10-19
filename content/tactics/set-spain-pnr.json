@@ -1,0 +1,1265 @@
+{
+  "id": "set-spain-pnr",
+  "slug": "spain-pick-and-roll",
+  "title": { "id": "Spain Pick-and-Roll", "en": "Spain Pick-and-Roll" },
+  "category": "set-play",
+  "level": 4,
+  "court": "half",
+  "duration": 7.2,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "PG dan center menjalankan pick-and-roll di tengah, lalu pemain ketiga memasang back screen pada bek center agar roller terbuka.",
+    "en": "A middle pick-and-roll where a third player back-screens the roller's defender."
+  },
+  "whenToUse": {
+    "id": "Dipakai saat lawan memakai coverage drop dan punya penembak yang bisa dipercaya di posisi 2 — satu aksi memaksa dua bek membuat keputusan sekaligus.",
+    "en": "Use against drop coverage when you have a reliable shooter at the 2."
+  },
+  "origin": {
+    "id": "Dikenal sebagai aksi Spanyol karena dipopulerkan tim nasional Spanyol di kompetisi internasional, lalu menyebar ke liga-liga Eropa dan NBA.",
+    "en": "Named after the Spanish national team that popularised it in international play."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": 0, "y": 8.2, "facing": 0 },
+      "hasBall": true
+    },
+    {
+      "id": "O2",
+      "team": "offense",
+      "role": "SG",
+      "start": { "x": 0.2, "y": 4.6, "facing": 180 }
+    },
+    {
+      "id": "O3",
+      "team": "offense",
+      "role": "SF",
+      "start": { "x": 6.6, "y": 0.5, "facing": 0 }
+    },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": -6.6, "y": 0.5, "facing": 0 }
+    },
+    {
+      "id": "O5",
+      "team": "offense",
+      "role": "C",
+      "start": { "x": -0.4, "y": 1.6, "facing": 180 }
+    },
+    {
+      "id": "X1",
+      "team": "defense",
+      "guards": "O1",
+      "start": { "x": 0, "y": 7.1, "facing": 180 }
+    },
+    {
+      "id": "X2",
+      "team": "defense",
+      "guards": "O2",
+      "start": { "x": -1.7, "y": 5.5, "facing": 180 }
+    },
+    {
+      "id": "X3",
+      "team": "defense",
+      "guards": "O3",
+      "start": { "x": 5.8, "y": 1.3, "facing": 180 }
+    },
+    {
+      "id": "X4",
+      "team": "defense",
+      "guards": "O4",
+      "start": { "x": -5.2, "y": 1.7, "facing": 180 }
+    },
+    {
+      "id": "X5",
+      "team": "defense",
+      "guards": "O5",
+      "start": { "x": -0.4, "y": 0.9, "facing": 180 }
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Setup", "en": "Setup" },
+      "tStart": 0,
+      "tEnd": 2,
+      "narration": {
+        "id": "1 dribble pancingan menjauhi screen supaya bek ikut bergeser. 5 sprint dari paint ke top untuk memasang screen. 2 menyelip ke sisi buta X5.",
+        "en": "The handler dribbles away from the screen while the big sprints up to set it."
+      },
+      "focus": [
+        "O1",
+        "O5",
+        "O2"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Screen", "en": "Screen" },
+      "tStart": 2,
+      "tEnd": 3,
+      "narration": {
+        "id": "1 memakai screen 5 ke kanan dengan bahu rapat ke pinggul screener. X5 mundur ke paint — ini coverage drop.",
+        "en": "The handler uses the screen going right; the big defender drops."
+      },
+      "focus": [
+        "O1",
+        "O5",
+        "X1",
+        "X5"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Roll + back screen", "en": "Roll + back screen" },
+      "tStart": 3,
+      "tEnd": 4,
+      "narration": {
+        "id": "5 roll ke ring. Tepat bersamaan, 2 memasang back screen pada X5 — inilah inti aksi Spain.",
+        "en": "The big rolls; at the same instant the third player back-screens the drop defender."
+      },
+      "focus": [
+        "O5",
+        "O2",
+        "X5"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Pop", "en": "Pop" },
+      "tStart": 4,
+      "tEnd": 4.8,
+      "narration": {
+        "id": "2 pop ke garis 3 poin di top-kiri dengan kaki siap tembak. X2 sudah meninggalkannya untuk membantu roller.",
+        "en": "The screener pops out to the three-point line, feet set."
+      },
+      "focus": [
+        "O2",
+        "X2"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": { "id": "Keputusan", "en": "Decision" },
+      "tStart": 4.8,
+      "tEnd": 6,
+      "narration": {
+        "id": "1 membaca bek: umpan ke 5 yang roll, umpan ke 2 di top, kick ke sudut, atau tembak sendiri. Waktu melambat 0,3x.",
+        "en": "The handler reads the defence and chooses."
+      },
+      "focus": [
+        "O1"
+      ]
+    },
+    {
+      "id": "p6",
+      "title": { "id": "Hasil", "en": "Outcome" },
+      "tStart": 6,
+      "tEnd": 7.2,
+      "narration": {
+        "id": "X2 memilih membantu ke roller, jadi 2 bebas di top-kiri. Umpan keluar, tangkap-tembak.",
+        "en": "The help defender committed, so the popping shooter is open."
+      },
+      "focus": [
+        "O2"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-o1-setup",
+      "t": 0,
+      "dur": 2,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[0, 8.2], [-1.7, 8], [-1.1, 8.5]],
+      "speed": "jog",
+      "label": "Dribble pancingan"
+    },
+    {
+      "id": "e-x1-mirror",
+      "t": 0.1,
+      "dur": 1.9,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[0, 7.1], [-1.6, 7], [-1, 7.5]],
+      "speed": "slide"
+    },
+    {
+      "id": "e-o5-up",
+      "t": 0.2,
+      "dur": 1.8,
+      "type": "move",
+      "actor": "O5",
+      "path": [[-0.4, 1.6], [1.8, 3], [2.6, 6], [1.3, 8.4]],
+      "speed": "sprint",
+      "label": "Sprint ke screen"
+    },
+    {
+      "id": "e-x5-follow",
+      "t": 0.35,
+      "dur": 1.75,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[-0.4, 0.9], [1.3, 2.5], [2.3, 5.6], [1, 7.7]],
+      "speed": "sprint"
+    },
+    {
+      "id": "e-o2-tuck",
+      "t": 0.6,
+      "dur": 1.2,
+      "type": "move",
+      "actor": "O2",
+      "path": [[0.2, 4.6], [-0.2, 4.4], [-0.5, 4.3]],
+      "speed": "walk",
+      "label": "Sembunyi di sisi buta"
+    },
+    {
+      "id": "e-x2-drift",
+      "t": 0.8,
+      "dur": 1.2,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[-1.7, 5.5], [-1.5, 5.4], [-1.3, 5.3]],
+      "speed": "slide"
+    },
+    {
+      "id": "e-o5-screen",
+      "t": 2,
+      "dur": 0.7,
+      "type": "screen",
+      "actor": "O5",
+      "target": "X1",
+      "path": [[1.3, 8.4], [1.15, 8.35]],
+      "label": "Ball screen"
+    },
+    {
+      "id": "e-o1-use-screen",
+      "t": 2,
+      "dur": 1,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[-1.1, 8.5], [0.4, 8.5], [1.9, 7.9], [2.8, 7]],
+      "speed": "jog",
+      "label": "Pakai screen"
+    },
+    {
+      "id": "e-x1-chase",
+      "t": 2.05,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[-1, 7.5], [0.6, 8.6], [2.1, 8.1], [2.7, 7.2]],
+      "speed": "sprint",
+      "label": "Kejar lewat atas"
+    },
+    {
+      "id": "e-x5-drop",
+      "t": 2.25,
+      "dur": 1.3,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[1, 7.7], [1.3, 6.2], [1.5, 4.6]],
+      "speed": "slide",
+      "label": "Drop"
+    },
+    {
+      "id": "e-o5-roll",
+      "t": 3,
+      "dur": 1.35,
+      "type": "cut",
+      "actor": "O5",
+      "path": [[1.15, 8.35], [0.6, 6.4], [0.3, 3.8], [0.2, 1.4]],
+      "speed": "sprint",
+      "label": "Roll ke ring"
+    },
+    {
+      "id": "e-o2-backscreen",
+      "t": 3.1,
+      "dur": 0.5,
+      "type": "screen",
+      "actor": "O2",
+      "target": "X5",
+      "path": [[-0.5, 4.3], [1, 4.9]],
+      "label": "Back screen"
+    },
+    {
+      "id": "e-x2-help",
+      "t": 3.45,
+      "dur": 0.75,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[-1.3, 5.3], [-1.5, 4], [-1.6, 2.8]],
+      "speed": "slide",
+      "label": "Bantu ke roller"
+    },
+    {
+      "id": "e-o2-pop",
+      "t": 4,
+      "dur": 0.85,
+      "type": "cut",
+      "actor": "O2",
+      "path": [[1, 4.9], [-0.5, 6.2], [-2.2, 7.4]],
+      "speed": "sprint",
+      "label": "Pop ke 3 poin"
+    },
+    {
+      "id": "e-pass-o2",
+      "t": 5.3,
+      "dur": 0.4,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O2",
+      "label": "Umpan ke penembak"
+    },
+    {
+      "id": "e-o2-shot",
+      "t": 6,
+      "dur": 1.1,
+      "type": "shot",
+      "actor": "O2",
+      "target": "rim",
+      "made": true,
+      "label": "Catch-and-shoot 3"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 4.9,
+      "owner": "O1",
+      "cue": {
+        "id": "Lihat X5 dan X2. Siapa yang terhambat back screen, dan siapa yang meninggalkan penembaknya?",
+        "en": "Read X5 and X2: who is screened, and who left their shooter?"
+      },
+      "options": [
+        {
+          "id": "o-pop",
+          "label": { "id": "Umpan ke 2 di top-kiri", "en": "Pass to the popping shooter" },
+          "branchId": "b-pass-pop",
+          "correct": true,
+          "correctWhen": "X2 membantu ke roller",
+          "targetPlayer": "O2",
+          "explain": {
+            "id": "X2 sudah melangkah ke roller, jadi 2 bebas di garis 3 poin dengan kaki siap. Ini hadiah utama Spain PnR.",
+            "en": "X2 committed to the roller, leaving the popping shooter wide open."
+          }
+        },
+        {
+          "id": "o-lob",
+          "label": { "id": "Lob ke 5 yang roll", "en": "Lob to the roller" },
+          "branchId": "b-lob",
+          "correct": false,
+          "correctWhen": "X5 terhambat back screen dan tidak pulih",
+          "targetPlayer": "O5",
+          "explain": {
+            "id": "Lob benar hanya bila X5 benar-benar tertahan. Di putaran ini X5 sudah berhasil melepas screen dan berada di jalur roll — lob akan di-contest.",
+            "en": "The lob is only right while X5 is still stuck on the screen."
+          }
+        },
+        {
+          "id": "o-corner",
+          "label": { "id": "Kick ke 4 di sudut kiri", "en": "Kick to the weak-side corner" },
+          "branchId": "b-kick-corner",
+          "correct": false,
+          "correctWhen": "X4 menempel roller (tag)",
+          "targetPlayer": "O4",
+          "explain": {
+            "id": "Kick ke sudut benar kalau X4 yang meninggalkan sudut untuk tag roller. Di sini X4 masih menempel 4, jadi umpan ini terlalu jauh dan bisa dipotong.",
+            "en": "Only kick to the corner once X4 leaves it to tag the roller."
+          }
+        },
+        {
+          "id": "o-pullup",
+          "label": { "id": "Pull-up jump shot", "en": "Pull-up jumper" },
+          "branchId": "b-pullup",
+          "correct": false,
+          "correctWhen": "X1 dan X5 sama-sama jauh",
+          "explain": {
+            "id": "Pull-up adalah opsi terakhir. X1 masih menempel di pinggul — tembakan ini di-contest, padahal ada penembak bebas.",
+            "en": "The pull-up is the last resort; X1 is still attached."
+          }
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-pass-pop",
+      "group": "outcome",
+      "label": { "id": "Umpan ke 2 (pop)", "en": "Pass to the pop" },
+      "fromT": 5,
+      "outcome": "score",
+      "replaces": [],
+      "counter": {
+        "id": "Lawan harus memilih: tinggalkan roller atau tinggalkan penembak. Itulah dilema yang diciptakan Spain.",
+        "en": "The defence must choose between the roller and the shooter."
+      },
+      "events": [
+        {
+          "id": "bp-pass",
+          "t": 5.3,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O2",
+          "label": "Umpan ke penembak"
+        },
+        {
+          "id": "bp-shot",
+          "t": 6,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O2",
+          "target": "rim",
+          "made": true,
+          "label": "Catch-and-shoot 3"
+        }
+      ]
+    },
+    {
+      "id": "b-lob",
+      "group": "outcome",
+      "label": { "id": "Lob ke 5", "en": "Lob to the roller" },
+      "fromT": 5,
+      "outcome": "contested",
+      "replaces": [
+        "e-pass-o2",
+        "e-o2-shot"
+      ],
+      "counter": {
+        "id": "X5 yang sudah pulih akan menunggu di jalur roll; lob hanya menang bila back screen benar-benar menahannya.",
+        "en": "A recovered drop defender will meet the lob at the rim."
+      },
+      "events": [
+        {
+          "id": "bl-pass",
+          "t": 5.2,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O5",
+          "label": "Lob"
+        },
+        {
+          "id": "bl-x5-recover",
+          "t": 5,
+          "dur": 0.9,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1.5, 4.6], [1.2, 3.2], [0.9, 2]],
+          "speed": "sprint",
+          "label": "X5 pulih"
+        },
+        {
+          "id": "bl-shot",
+          "t": 5.9,
+          "dur": 0.9,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "made": false,
+          "label": "Layup di-contest"
+        }
+      ]
+    },
+    {
+      "id": "b-kick-corner",
+      "group": "outcome",
+      "label": { "id": "Kick ke sudut (4)", "en": "Kick to the corner" },
+      "fromT": 5,
+      "outcome": "good-look",
+      "replaces": [
+        "e-pass-o2",
+        "e-o2-shot"
+      ],
+      "counter": {
+        "id": "Bila X4 tag roller, sudut sisi lemah jadi tembakan 3 poin terdekat (6,60 m) di seluruh lapangan.",
+        "en": "If X4 tags the roller, the weak-side corner is the shortest three on the floor."
+      },
+      "events": [
+        {
+          "id": "bk-x4-tag",
+          "t": 4.9,
+          "dur": 0.6,
+          "type": "rotate",
+          "actor": "X4",
+          "path": [[-5.2, 1.7], [-3.6, 1.8], [-2.2, 1.8]],
+          "speed": "sprint",
+          "label": "Tag roller"
+        },
+        {
+          "id": "bk-pass",
+          "t": 5.4,
+          "dur": 0.55,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O4",
+          "label": "Skip pass ke sudut"
+        },
+        {
+          "id": "bk-shot",
+          "t": 6.2,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O4",
+          "target": "rim",
+          "made": true,
+          "label": "Corner 3"
+        }
+      ]
+    },
+    {
+      "id": "b-pullup",
+      "group": "outcome",
+      "label": { "id": "Pull-up 1", "en": "Handler pull-up" },
+      "fromT": 5,
+      "outcome": "contested",
+      "replaces": [
+        "e-pass-o2",
+        "e-o2-shot"
+      ],
+      "counter": {
+        "id": "Coverage drop memang mengundang pull-up jarak menengah — tembakan paling tidak efisien di lapangan bila ada opsi lain.",
+        "en": "Drop coverage invites the mid-range pull-up, the least efficient shot available."
+      },
+      "events": [
+        {
+          "id": "bu-shot",
+          "t": 5.3,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O1",
+          "target": "rim",
+          "made": false,
+          "label": "Pull-up di-contest"
+        }
+      ]
+    },
+    {
+      "id": "b-cov-switch",
+      "group": "coverage",
+      "label": { "id": "Coverage: Switch", "en": "Coverage: Switch" },
+      "fromT": 3,
+      "trigger": { "coverage": "switch" },
+      "outcome": "good-look",
+      "replaces": [],
+      "counter": {
+        "id": "Bila X2 dan X5 switch lebih awal, 2 tidak perlu memasang screen — ia slip langsung ke ring sebelum pertukaran selesai.",
+        "en": "If they switch early, the screener slips to the rim before the exchange completes."
+      },
+      "events": [
+        {
+          "id": "bs-o2-slip",
+          "t": 3.1,
+          "dur": 1.1,
+          "type": "cut",
+          "actor": "O2",
+          "path": [[-0.5, 4.3], [-1.6, 3], [-2, 1.2]],
+          "speed": "sprint",
+          "label": "Slip ke ring"
+        },
+        {
+          "id": "bs-x2-take-roller",
+          "t": 3.1,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X2",
+          "path": [[-1.3, 5.3], [-0.7, 3.8], [-0.4, 2.4]],
+          "speed": "sprint",
+          "label": "X2 ambil roller"
+        },
+        {
+          "id": "bs-x5-take-screener",
+          "t": 3.6,
+          "dur": 0.9,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1.5, 4.6], [0.9, 4.5], [0.3, 4.6]],
+          "speed": "slide",
+          "label": "X5 ambil back-screener - terlambat"
+        },
+        {
+          "id": "bs-pass",
+          "t": 4.3,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O2",
+          "label": "Umpan ke slip"
+        },
+        {
+          "id": "bs-shot",
+          "t": 4.9,
+          "dur": 0.9,
+          "type": "shot",
+          "actor": "O2",
+          "target": "rim",
+          "made": true,
+          "label": "Layup"
+        }
+      ]
+    },
+    {
+      "id": "b-cov-blitz",
+      "group": "coverage",
+      "label": { "id": "Coverage: Blitz / Trap", "en": "Coverage: Blitz" },
+      "fromT": 2.4,
+      "trigger": { "coverage": "blitz" },
+      "outcome": "good-look",
+      "replaces": [
+        "e-o2-pop",
+        "e-o2-shot",
+        "e-pass-o2",
+        "e-x1-chase",
+        "e-x2-help",
+        "e-x5-drop"
+      ],
+      "counter": {
+        "id": "Blitz memaksa bola lepas, tetapi meninggalkan 4 lawan 3 di belakang. Umpan ke short roll, lalu 5 jadi pengumpan.",
+        "en": "A blitz forces the ball out but leaves four on three behind it."
+      },
+      "events": [
+        {
+          "id": "bb-x1-trap",
+          "t": 2.05,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[-1, 7.5], [0.6, 8.6], [2, 8.2], [2.7, 7.6]],
+          "speed": "sprint",
+          "label": "X1 menutup sisi atas trap"
+        },
+        {
+          "id": "bb-x5-blitz",
+          "t": 2.4,
+          "dur": 0.8,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1, 7.7], [1.6, 7.2], [2.3, 6.5]],
+          "speed": "sprint",
+          "label": "Blitz handler"
+        },
+        {
+          "id": "bb-o5-shortroll",
+          "t": 3,
+          "dur": 1,
+          "type": "cut",
+          "actor": "O5",
+          "path": [[1.15, 8.35], [0.3, 6.8], [-0.2, 5.2]],
+          "speed": "jog",
+          "label": "Short roll"
+        },
+        {
+          "id": "bb-pass-out",
+          "t": 3.6,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O5",
+          "label": "Keluar dari trap"
+        },
+        {
+          "id": "bb-x2-rotate",
+          "t": 3.3,
+          "dur": 0.9,
+          "type": "rotate",
+          "actor": "X2",
+          "path": [[-1.3, 5.3], [-0.9, 4], [-0.7, 2.9]],
+          "speed": "sprint",
+          "label": "Rotasi menutup short roll"
+        },
+        {
+          "id": "bb-o2-lift",
+          "t": 3.6,
+          "dur": 0.9,
+          "type": "cut",
+          "actor": "O2",
+          "path": [[-0.5, 4.3], [-1.6, 5.8], [-2.6, 7.1]],
+          "speed": "sprint",
+          "label": "Lift ke slot"
+        },
+        {
+          "id": "bb-x4-tag",
+          "t": 4,
+          "dur": 0.7,
+          "type": "rotate",
+          "actor": "X4",
+          "path": [[-5.2, 1.7], [-3.8, 2.4], [-2.6, 3]],
+          "speed": "sprint",
+          "label": "Rotasi 4v3"
+        },
+        {
+          "id": "bb-pass-2",
+          "t": 4.6,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O5",
+          "target": "O2",
+          "label": "Umpan 4v3"
+        },
+        {
+          "id": "bb-shot",
+          "t": 5.3,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O2",
+          "target": "rim",
+          "made": true,
+          "label": "Open 3"
+        }
+      ]
+    },
+    {
+      "id": "b-mistake-early",
+      "group": "mistake",
+      "label": { "id": "Salah: 1 menyerang terlalu cepat", "en": "Mistake: handler attacks too early" },
+      "fromT": 2.6,
+      "outcome": "turnover",
+      "replaces": [
+        "e-o2-backscreen",
+        "e-x2-help",
+        "e-o2-pop",
+        "e-pass-o2",
+        "e-o2-shot"
+      ],
+      "events": [
+        {
+          "id": "bme-o2-late",
+          "t": 3.3,
+          "dur": 0.8,
+          "type": "move",
+          "actor": "O2",
+          "path": [[-0.5, 4.3], [-1.6, 5], [-2.4, 5.6]],
+          "speed": "jog",
+          "label": "2 terlambat, back screen tidak pernah terjadi",
+          "wrong": true
+        },
+        {
+          "id": "bme-o1-rush",
+          "t": 3,
+          "dur": 1,
+          "type": "dribble",
+          "actor": "O1",
+          "path": [[2.8, 7], [2.6, 5.4], [2.2, 3.9]],
+          "speed": "sprint",
+          "wrong": true,
+          "label": "Menyerang sebelum back screen"
+        },
+        {
+          "id": "bme-x5-meet",
+          "t": 3.55,
+          "dur": 0.65,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1.5, 4.6], [1.7, 4.2], [1.7, 3.8]],
+          "speed": "sprint",
+          "label": "X5 bebas menunggu di jalur drive"
+        },
+        {
+          "id": "bme-turnover",
+          "t": 4.1,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "label": "Bola dicuri",
+          "wrong": true
+        }
+      ]
+    },
+    {
+      "id": "b-mistake-moving-screen",
+      "group": "mistake",
+      "label": { "id": "Salah: moving screen 5", "en": "Mistake: moving screen" },
+      "fromT": 2,
+      "outcome": "turnover",
+      "replaces": [
+        "e-o5-screen",
+        "e-o5-roll",
+        "e-o2-backscreen",
+        "e-x2-help",
+        "e-o2-pop",
+        "e-pass-o2",
+        "e-o2-shot"
+      ],
+      "events": [
+        {
+          "id": "bmm-o5-move",
+          "t": 2,
+          "dur": 0.9,
+          "type": "screen",
+          "actor": "O5",
+          "target": "X1",
+          "path": [[1.3, 8.4], [0.6, 8.1], [0, 7.9]],
+          "wrong": true,
+          "label": "Moving screen - foul"
+        },
+        {
+          "id": "bmm-whistle",
+          "t": 2.9,
+          "dur": 0.4,
+          "type": "pass",
+          "actor": "O5",
+          "label": "Offensive foul",
+          "wrong": true
+        }
+      ]
+    },
+    {
+      "id": "b-mistake-early-screen",
+      "group": "mistake",
+      "label": { "id": "Salah: back screen terlalu awal", "en": "Mistake: back screen too early" },
+      "fromT": 2.3,
+      "outcome": "reset",
+      "replaces": [
+        "e-o2-backscreen",
+        "e-x2-help",
+        "e-o2-pop",
+        "e-pass-o2",
+        "e-o2-shot",
+        "e-x5-drop"
+      ],
+      "events": [
+        {
+          "id": "bmes-o2-early",
+          "t": 2.3,
+          "dur": 0.7,
+          "type": "screen",
+          "actor": "O2",
+          "target": "X5",
+          "path": [[-0.5, 4.3], [1.2, 5.7]],
+          "wrong": true,
+          "label": "Screen sebelum roll"
+        },
+        {
+          "id": "bmes-x5-free",
+          "t": 2.9,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1, 7.7], [1.9, 6], [1.6, 4.3]],
+          "speed": "slide",
+          "label": "X5 lewat sebelum screen terpasang"
+        },
+        {
+          "id": "bmes-reset",
+          "t": 4.2,
+          "dur": 1,
+          "type": "dribble",
+          "actor": "O1",
+          "path": [[2.8, 7], [1.4, 8], [0, 8.4]],
+          "speed": "jog",
+          "label": "Reset set"
+        }
+      ]
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "O1",
+      "mission": {
+        "id": "Atur timing dan jaga dribble tetap hidup sampai back screen terpasang.",
+        "en": "Control the timing and keep your dribble alive until the back screen lands."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Dribble pancingan menjauhi sisi screen agar X1 ikut bergeser." }
+        },
+        {
+          "phaseId": "p2",
+          "text": {
+            "id": "Tunggu 5 benar-benar berdiri diam, lalu lewat dengan bahu rapat ke pinggulnya."
+          }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Belok ke tengah dan jaga dribble hidup — jangan angkat bola." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Lihat ke sisi kiri: 2 sedang pop ke garis 3 poin." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Baca X5 dan X2, lalu pilih satu dari empat opsi." }
+        }
+      ],
+      "cues": [
+        { "id": "Posisi X5: apakah ia terhambat back screen atau sudah melewatinya?" },
+        { "id": "Apakah X2 melangkah ke roller? Kalau ya, 2 bebas." },
+        { "id": "Apakah bek sudut menempel roller (tag)? Kalau ya, sudut terbuka." }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X5 terhambat back screen" },
+          "thenDo": { "id": "Lob atau bounce pass ke 5" },
+          "branchId": "b-lob"
+        },
+        {
+          "ifCue": { "id": "X2 membantu ke roller" },
+          "thenDo": { "id": "Umpan ke 2 di top-kiri" },
+          "branchId": "b-pass-pop"
+        },
+        {
+          "ifCue": { "id": "X4 menempel roller" },
+          "thenDo": { "id": "Kick ke 4 di sudut kiri" },
+          "branchId": "b-kick-corner"
+        },
+        {
+          "ifCue": { "id": "X1 dan X5 sama-sama jauh" },
+          "thenDo": { "id": "Pull-up" },
+          "branchId": "b-pullup"
+        }
+      ],
+      "mistakes": [
+        { "id": "Menyerang terlalu cepat sebelum back screen terpasang." },
+        { "id": "Lob saat X5 sudah pulih ke jalur roll." },
+        { "id": "Mengangkat dribble sebelum punya keputusan." }
+      ],
+      "calls": [
+        "Screen kanan!",
+        "Tunggu!",
+        "Pop!"
+      ]
+    },
+    {
+      "playerId": "O2",
+      "mission": {
+        "id": "Pasang back screen pada X5 tepat saat 5 roll, lalu pop sebagai penembak.",
+        "en": "Back-screen the drop defender exactly as the big rolls, then pop as the shooter."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Sembunyi di sisi buta X5 di sekitar garis lemparan bebas." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Diam. Jangan bergerak sebelum 5 melepas screen-nya." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Screen X5 tepat saat 5 mulai roll — timing adalah segalanya." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Beri X5 ruang satu langkah normal, lalu pop ke 3 poin dengan kaki siap." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Tangan jadi target. Siap tangkap-tembak tanpa langkah tambahan." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah X2 mengikuti kamu atau melangkah membantu ke roller?" },
+        { "id": "Apakah X5 dan X2 memanggil switch sebelum screen terpasang?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X2 membantu ke roller" },
+          "thenDo": { "id": "Pop dan tangkap-tembak" },
+          "branchId": "b-pass-pop"
+        },
+        {
+          "ifCue": { "id": "X2 dan X5 switch lebih awal" },
+          "thenDo": { "id": "Slip ke ring, jangan pasang screen" },
+          "branchId": "b-cov-switch"
+        }
+      ],
+      "mistakes": [
+        { "id": "Screen terlalu awal — X5 lewat sebelum kontak terjadi." },
+        { "id": "Back screen tanpa memberi ruang satu langkah: ini foul." },
+        { "id": "Pop sambil melayang, bukan dengan kaki siap tembak." }
+      ],
+      "calls": [
+        "Back!",
+        "Switch!",
+        "Ball!"
+      ]
+    },
+    {
+      "playerId": "O5",
+      "mission": {
+        "id": "Screen keras dengan posisi legal, lalu roll ke ring sebagai target.",
+        "en": "Set a hard legal screen, then roll to the rim as a target."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Sprint dari paint ke top — jangan jalan, kecepatan menciptakan tekanan." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Berdiri diam saat kontak. Kaki selebar bahu, tangan melindungi badan." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Pivot lalu roll ke ring. Tangan siap jadi target." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Seal bek dengan badan bila sudah berada di dalam paint." }
+        },
+        { "phaseId": "p5", "text": { "id": "Bila bola tidak datang, rebound menyerang." } }
+      ],
+      "cues": [
+        { "id": "Arah dribble 1 — screen harus menghadap ke arah ia ingin pergi." },
+        { "id": "Posisi X5 setelah back screen: terhambat atau sudah pulih?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bek switch" },
+          "thenDo": { "id": "Seal bek kecil di paint" },
+          "branchId": "b-cov-switch"
+        },
+        {
+          "ifCue": { "id": "Blitz / trap" },
+          "thenDo": { "id": "Short roll dan jadi pengumpan 4 lawan 3" },
+          "branchId": "b-cov-blitz"
+        }
+      ],
+      "mistakes": [
+        { "id": "Moving screen — bergerak saat kontak terjadi, langsung offensive foul." },
+        { "id": "Roll sebelum handler melewati screen." },
+        { "id": "Roll tanpa tangan target, sehingga pengumpan tidak punya sasaran." }
+      ],
+      "calls": [
+        "Screen!",
+        "Roll!",
+        "Yes!"
+      ]
+    },
+    {
+      "playerId": "O3",
+      "mission": {
+        "id": "Jaga lebar lapangan di sudut sisi bola sebagai ancaman tembakan.",
+        "en": "Hold the ball-side corner as a spacing threat."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Tetap di sudut. Jangan ikut melihat bola sampai lupa spacing." }
+        },
+        { "phaseId": "p2", "text": { "id": "Kaki siap, tangan jadi target." } },
+        { "phaseId": "p3", "text": { "id": "Perhatikan apakah X3 turun membantu ke roller." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Bila X3 turun, tetap di sudut dan siap kick-out." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Bila X3 tetap menempel, lift ke wing untuk umpan pengaman." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah X3 turun membantu ke handler atau roller?" },
+        { "id": "Apakah 1 kehilangan opsi umpan dan butuh ventil pengaman?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X3 membantu ke dalam" },
+          "thenDo": { "id": "Tetap di sudut, siap tangkap-tembak" }
+        },
+        {
+          "ifCue": { "id": "X3 tetap menempel" },
+          "thenDo": { "id": "Lift ke wing untuk umpan pengaman" }
+        }
+      ],
+      "mistakes": [
+        {
+          "id": "Mendekat ke bola dan merusak spacing — bek kamu jadi bisa membantu dua orang."
+        },
+        { "id": "Berdiri di dalam garis 3 poin sehingga ancaman tembakan hilang." },
+        { "id": "Tangan tidak siap saat bola datang." }
+      ],
+      "calls": [
+        "Corner!",
+        "Here!"
+      ]
+    },
+    {
+      "playerId": "O4",
+      "mission": {
+        "id": "Jadi penembak sisi lemah yang menghukum setiap bek yang tag roller.",
+        "en": "Be the weak-side shooter who punishes any tag on the roller."
+      },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Tetap di sudut sisi lemah, di luar garis 3 poin." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Lihat bola dengan kepala, bukan dengan kaki — jangan melayang ke dalam." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Perhatikan X4: apakah ia melangkah menahan roller?" }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Bila X4 tag, siapkan kaki untuk tangkap-tembak dari sudut." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Bila X4 melihat bola dan berpaling, cut baseline ke ring." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah X4 menempel roller (tag)?" },
+        { "id": "Apakah kepala X4 berpaling dari kamu?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X4 tag roller" },
+          "thenDo": { "id": "Tangkap-tembak dari sudut" },
+          "branchId": "b-kick-corner"
+        },
+        {
+          "ifCue": { "id": "X4 berpaling melihat bola" },
+          "thenDo": { "id": "Cut baseline ke ring" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Berdiri di jalur umpan sehingga skip pass bisa dipotong." },
+        { "id": "Terlambat menyiapkan kaki, sehingga tembakan jadi lambat." },
+        { "id": "Melayang ke paint dan menarik X4 lebih dekat ke roller." }
+      ],
+      "calls": [
+        "Weak!",
+        "Shot!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "1 menyerang sebelum back screen terpasang" },
+      "why": {
+        "id": "Tanpa back screen, X5 bebas menunggu di jalur drive. Seluruh keunggulan aksi ini hilang dan bola mudah dicuri."
+      },
+      "branchId": "b-mistake-early"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "5 memasang moving screen" },
+      "why": {
+        "id": "Screener wajib berdiri diam saat kontak. Bergerak ke arah bek berarti offensive foul dan possession langsung hilang."
+      },
+      "branchId": "b-mistake-moving-screen"
+    },
+    {
+      "id": "m3",
+      "title": { "id": "2 memasang back screen terlalu awal" },
+      "why": {
+        "id": "Screen harus bersamaan dengan roll. Terlalu awal berarti X5 sudah lewat sebelum kontak, dan set harus di-reset."
+      },
+      "branchId": "b-mistake-early-screen"
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Penembak sudut melayang ke dalam" },
+      "why": {
+        "id": "Spacing rapat membuat satu bek bisa menjaga dua penyerang. Sudut harus dijaga tetap lebar agar help punya harga."
+      }
+    },
+    {
+      "id": "m5",
+      "title": { "id": "2 pop tanpa memberi ruang satu langkah" },
+      "why": {
+        "id": "Back screen tanpa jarak satu langkah normal adalah foul. Berikan ruang, baru pop."
+      }
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "X2 berteriak \"back screen\" lebih awal dan switch dengan X5." },
+      "response": {
+        "id": "2 tidak memasang screen sama sekali — ia slip langsung ke ring sebelum pertukaran selesai."
+      },
+      "branchId": "b-cov-switch"
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Blitz: X1 dan X5 mengepung handler tepat setelah screen." },
+      "response": { "id": "Umpan ke short roll 5, lalu serang 4 lawan 3 di belakang trap." },
+      "branchId": "b-cov-blitz"
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "X3 atau X4 melakukan tag singkat (stunt) ke roller lalu closeout ke sudut." },
+      "response": {
+        "id": "Skip pass ke sudut sisi lemah; tembakan 3 poin sudut adalah yang terdekat di lapangan."
+      },
+      "branchId": "b-kick-corner"
+    },
+    {
+      "id": "c4",
+      "defense": { "id": "X5 melawan back screen dengan mundur lebih dalam sejak awal (deep drop)." },
+      "response": {
+        "id": "1 mengambil pull-up atau 5 pick-and-pop ke elbow; drop yang terlalu dalam membayar dengan tembakan luar."
+      },
+      "branchId": "b-pullup"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": { "id": "X2 melangkah membantu ke roller. Ke mana bola harus pergi?" },
+      "pauseAt": 4.9,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": { "id": "X4 meninggalkan sudut untuk tag roller. Umpan mana yang paling bernilai?" },
+      "pauseAt": 4.9,
+      "setupBranches": [
+        "b-kick-corner"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "X5 dan X2 memanggil switch lebih awal. Apa yang harus dilakukan 2?" },
+      "pauseAt": 3.4,
+      "setupBranches": [
+        "b-cov-switch"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [
+      "off-spread-pnr",
+      "set-horns"
+    ],
+    "nextUp": []
+  },
+  "terms": [
+    "pick-and-roll",
+    "back-screen",
+    "short-roll",
+    "drop",
+    "switch",
+    "blitz",
+    "tag",
+    "kick-out",
+    "skip-pass",
+    "slip",
+    "spacing",
+    "corner"
+  ]
+}

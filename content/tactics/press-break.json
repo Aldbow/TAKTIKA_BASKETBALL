@@ -1,0 +1,879 @@
+{
+  "id": "press-break",
+  "slug": "press-break",
+  "title": { "id": "Press Break", "en": "Press Break" },
+  "category": "press",
+  "level": 2,
+  "court": "full",
+  "duration": 7.4,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "Pola melawan press lapangan penuh: satu pemain tengah selalu tersedia, bola keluar dari jebakan lewat umpan pendek, lalu serangan berubah menjadi 3 lawan 2."
+  },
+  "whenToUse": {
+    "id": "Setiap kali lawan menekan lapangan penuh. Press break bukan serangan darurat — ia harus dilatih seperti set play biasa."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": -11.5, "y": -2, "facing": 90 },
+      "hasBall": true
+    },
+    {
+      "id": "O2",
+      "team": "offense",
+      "role": "SG",
+      "start": { "x": -11.5, "y": 2.2, "facing": 90 }
+    },
+    { "id": "O3", "team": "offense", "role": "SF", "start": { "x": -7, "y": 0, "facing": 90 } },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": -3, "y": 3.6, "facing": 90 }
+    },
+    {
+      "id": "O5",
+      "team": "offense",
+      "role": "C",
+      "start": { "x": -3, "y": -3.6, "facing": 90 }
+    },
+    {
+      "id": "X1",
+      "team": "defense",
+      "guards": "O1",
+      "start": { "x": -10.4, "y": -2.6, "facing": 270 }
+    },
+    {
+      "id": "X2",
+      "team": "defense",
+      "guards": "O2",
+      "start": { "x": -10.4, "y": 2.8, "facing": 270 }
+    },
+    {
+      "id": "X3",
+      "team": "defense",
+      "guards": "O5",
+      "start": { "x": -5, "y": -3.2, "facing": 270 }
+    },
+    {
+      "id": "X4",
+      "team": "defense",
+      "guards": "O4",
+      "start": { "x": -5, "y": 3.2, "facing": 270 }
+    },
+    {
+      "id": "X5",
+      "team": "defense",
+      "guards": "O3",
+      "start": { "x": 0.6, "y": 0, "facing": 270 }
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Tekanan & jebakan" },
+      "tStart": 0,
+      "tEnd": 1.8,
+      "narration": {
+        "id": "Press 2-2-1. X1 menekan pembawa bola ke sideline, X2 datang menjebak. Jangan pernah dribble masuk ke jebakan."
+      },
+      "focus": [
+        "O1",
+        "X1",
+        "X2"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Pemain tengah" },
+      "tStart": 1.8,
+      "tEnd": 3,
+      "narration": {
+        "id": "3 flash ke tengah — pemain tengah selalu tersedia. Umpan pendek keluar dari jebakan sebelum terbentuk."
+      },
+      "focus": [
+        "O3",
+        "O1"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Serang 3 lawan 2" },
+      "tStart": 3,
+      "tEnd": 5,
+      "narration": {
+        "id": "Setelah bola di tengah, press tinggal satu bek di belakang. 4 dan 5 lari di dua jalur lebar."
+      },
+      "focus": [
+        "O3",
+        "O4",
+        "O5",
+        "X5"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Keputusan" },
+      "tStart": 5,
+      "tEnd": 6.2,
+      "narration": { "id": "Satu bek terakhir tidak bisa menjaga dua jalur. Waktu melambat untuk memilih." },
+      "focus": [
+        "O3"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": { "id": "Hasil" },
+      "tStart": 6.2,
+      "tEnd": 7.4,
+      "narration": { "id": "Umpan ke jalur yang tidak dijaga menghasilkan finish tanpa penjaga." },
+      "focus": [
+        "O4"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-o1-advance",
+      "t": 0,
+      "dur": 1.8,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[-11.5, -2], [-10, -2.7], [-8.6, -3.1]],
+      "speed": "jog",
+      "label": "Maju, jangan ke sudut"
+    },
+    {
+      "id": "e-x1-pressure",
+      "t": 0.1,
+      "dur": 1.7,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[-10.4, -2.6], [-9.5, -3.4], [-8.7, -3.8]],
+      "speed": "slide",
+      "label": "Paksa ke sideline"
+    },
+    {
+      "id": "e-x2-trap",
+      "t": 0.7,
+      "dur": 1.3,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[-10.4, 2.8], [-9.7, 0.5], [-9.1, -1.7]],
+      "speed": "sprint",
+      "label": "Datang menjebak"
+    },
+    {
+      "id": "e-o3-flash",
+      "t": 1.3,
+      "dur": 1.1,
+      "type": "cut",
+      "actor": "O3",
+      "path": [[-7, 0], [-7.8, -0.5], [-8.5, -1.1]],
+      "speed": "jog",
+      "label": "Pemain tengah"
+    },
+    {
+      "id": "e-o2-release",
+      "t": 1.4,
+      "dur": 1.4,
+      "type": "move",
+      "actor": "O2",
+      "path": [[-11.5, 2.2], [-11.8, 0.6], [-12, -0.8]],
+      "speed": "jog",
+      "label": "Umpan balik aman"
+    },
+    {
+      "id": "e-pass-middle",
+      "t": 2.2,
+      "dur": 0.4,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O3",
+      "label": "Keluar dari jebakan"
+    },
+    {
+      "id": "e-o3-advance",
+      "t": 2.8,
+      "dur": 1.9,
+      "type": "dribble",
+      "actor": "O3",
+      "path": [[-8.5, -1.1], [-5.6, -0.6], [-2.4, 0], [0.8, 0.4]],
+      "speed": "sprint",
+      "label": "Maju ke tengah"
+    },
+    {
+      "id": "e-o4-lane",
+      "t": 2.6,
+      "dur": 2.5,
+      "type": "move",
+      "actor": "O4",
+      "path": [[-3, 3.6], [1, 4.3], [5.5, 4], [9.6, 2.5]],
+      "speed": "sprint",
+      "label": "Jalur lebar kanan"
+    },
+    {
+      "id": "e-o5-lane",
+      "t": 2.6,
+      "dur": 2.5,
+      "type": "move",
+      "actor": "O5",
+      "path": [[-3, -3.6], [1, -4.3], [5.5, -4], [9.4, -2.6]],
+      "speed": "sprint",
+      "label": "Jalur lebar kiri"
+    },
+    {
+      "id": "e-x5-retreat",
+      "t": 2.9,
+      "dur": 2,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[0.6, 0], [4.2, 0.3], [8.4, 0.6]],
+      "speed": "sprint",
+      "label": "Satu bek terakhir"
+    },
+    {
+      "id": "e-x3-chase",
+      "t": 3.1,
+      "dur": 2.2,
+      "type": "rotate",
+      "actor": "X3",
+      "path": [[-5, -3.2], [-1, -2.2], [3.2, -1.2]],
+      "speed": "sprint",
+      "label": "Kejar dari belakang"
+    },
+    {
+      "id": "e-pass-lane",
+      "t": 5.5,
+      "dur": 0.55,
+      "type": "pass",
+      "actor": "O3",
+      "target": "O4",
+      "label": "Umpan ke jalur bebas"
+    },
+    {
+      "id": "e-finish",
+      "t": 6.3,
+      "dur": 1,
+      "type": "shot",
+      "actor": "O4",
+      "target": "rim",
+      "label": "Finish tanpa penjaga",
+      "made": true
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 5.3,
+      "owner": "O3",
+      "cue": { "id": "Satu bek terakhir tidak bisa menjaga dua jalur. Ke jalur mana ia bergerak?" },
+      "options": [
+        {
+          "id": "o-right",
+          "label": { "id": "Umpan ke 4 di jalur kanan" },
+          "correct": true,
+          "explain": {
+            "id": "Bek terakhir sudah memilih sisi. Umpan ke jalur SEBERANG selalu menghasilkan finish tanpa penjaga — itulah hadiah dari memecahkan press."
+          },
+          "branchId": "b-out-right",
+          "correctWhen": "Bek terakhir bergeser ke jalur kiri",
+          "targetPlayer": "O4"
+        },
+        {
+          "id": "o-left",
+          "label": { "id": "Umpan ke 5 di jalur kiri" },
+          "correct": false,
+          "explain": {
+            "id": "Jalur ini yang sedang dituju bek terakhir. Umpan ke sana mengubah 3 lawan 2 menjadi 1 lawan 1."
+          },
+          "branchId": "b-out-left",
+          "correctWhen": "Bek terakhir bergeser ke jalur kanan",
+          "targetPlayer": "O5"
+        },
+        {
+          "id": "o-pullup",
+          "label": { "id": "Pull-up dari garis 3 poin" },
+          "correct": false,
+          "explain": {
+            "id": "Pull-up membuang keunggulan jumlah. Dalam 3 lawan 2, tembakan terbaik hampir selalu di ring, bukan di luar."
+          },
+          "branchId": "b-out-pullup",
+          "correctWhen": "Kedua jalur tertutup"
+        },
+        {
+          "id": "o-dribble",
+          "label": { "id": "Terus dribble ke ring" },
+          "correct": false,
+          "explain": {
+            "id": "Dribble ke bek terakhir justru menyatukan pertahanan. Bek terakhir hanya kalah bila harus memilih antara dua penerima."
+          }
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-out-right",
+      "group": "outcome",
+      "label": { "id": "Umpan ke jalur kanan" },
+      "fromT": 5.4,
+      "replaces": [],
+      "events": [
+        {
+          "id": "bor-pass",
+          "t": 5.5,
+          "dur": 0.55,
+          "type": "pass",
+          "actor": "O3",
+          "target": "O4",
+          "label": "Umpan ke jalur bebas"
+        },
+        {
+          "id": "bor-shot",
+          "t": 6.3,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O4",
+          "target": "rim",
+          "label": "Finish tanpa penjaga",
+          "made": true
+        }
+      ],
+      "counter": { "id": "Bek terakhir harus memilih satu jalur. Umpan ke jalur seberang selalu menang." },
+      "outcome": "score"
+    },
+    {
+      "id": "b-out-left",
+      "group": "outcome",
+      "label": { "id": "Umpan ke jalur yang dijaga" },
+      "fromT": 5.4,
+      "replaces": [
+        "e-pass-lane",
+        "e-finish"
+      ],
+      "events": [
+        {
+          "id": "bol-x5-shift",
+          "t": 5.2,
+          "dur": 0.9,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[8.4, 0.6], [8.6, -1], [8.8, -2.2]],
+          "speed": "sprint",
+          "label": "Bek terakhir sudah ke sana"
+        },
+        {
+          "id": "bol-pass",
+          "t": 5.6,
+          "dur": 0.55,
+          "type": "pass",
+          "actor": "O3",
+          "target": "O5",
+          "label": "Umpan ke jalur dijaga"
+        },
+        {
+          "id": "bol-shot",
+          "t": 6.4,
+          "dur": 0.9,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Di-contest",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-out-pullup",
+      "group": "outcome",
+      "label": { "id": "Pull-up" },
+      "fromT": 5.4,
+      "replaces": [
+        "e-pass-lane",
+        "e-finish"
+      ],
+      "events": [
+        {
+          "id": "bop-shot",
+          "t": 5.5,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O3",
+          "target": "rim",
+          "label": "Membuang 3 lawan 2",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-mistake-dribble-trap",
+      "group": "mistake",
+      "label": { "id": "Salah: dribble masuk ke jebakan" },
+      "fromT": 0.9,
+      "replaces": [
+        "e-o1-advance",
+        "e-x1-pressure",
+        "e-x2-trap",
+        "e-o3-flash",
+        "e-pass-middle",
+        "e-o3-advance",
+        "e-pass-lane",
+        "e-finish"
+      ],
+      "events": [
+        {
+          "id": "bmd-o1-corner",
+          "t": 0.9,
+          "dur": 1.4,
+          "type": "dribble",
+          "actor": "O1",
+          "path": [[-10.6, -2.4], [-10.8, -4.2], [-10.6, -5.6]],
+          "speed": "jog",
+          "label": "Dribble ke sudut",
+          "wrong": true
+        },
+        {
+          "id": "bmd-x1-seal",
+          "t": 1.2,
+          "dur": 1.2,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[-10, -3], [-9.8, -4.4], [-9.6, -5.4]],
+          "speed": "sprint",
+          "label": "Tutup jalan keluar"
+        },
+        {
+          "id": "bmd-x2-close",
+          "t": 1.3,
+          "dur": 1.3,
+          "type": "rotate",
+          "actor": "X2",
+          "path": [[-10.4, 2.8], [-11.4, -1.4], [-11.6, -4.6]],
+          "speed": "sprint",
+          "label": "Jebakan terbentuk"
+        },
+        {
+          "id": "bmd-turnover",
+          "t": 2.6,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "label": "Bola dicuri",
+          "wrong": true
+        }
+      ],
+      "outcome": "turnover"
+    },
+    {
+      "id": "b-mistake-no-middle",
+      "group": "mistake",
+      "label": { "id": "Salah: pemain tengah tidak tersedia" },
+      "fromT": 1.3,
+      "replaces": [
+        "e-o3-flash",
+        "e-pass-middle",
+        "e-o3-advance",
+        "e-o4-lane",
+        "e-o5-lane",
+        "e-x5-retreat",
+        "e-x3-chase",
+        "e-pass-lane",
+        "e-finish"
+      ],
+      "events": [
+        {
+          "id": "bmn-o3-away",
+          "t": 1.3,
+          "dur": 1.5,
+          "type": "move",
+          "actor": "O3",
+          "path": [[-7, 0], [-6.4, 2.4], [-5.8, 4.4]],
+          "speed": "jog",
+          "label": "Menjauh dari tengah",
+          "wrong": true
+        },
+        {
+          "id": "bmn-o1-stuck",
+          "t": 1.9,
+          "dur": 1.4,
+          "type": "dribble",
+          "actor": "O1",
+          "path": [[-8.6, -3.1], [-9.4, -4.2], [-9.8, -5.2]],
+          "speed": "jog",
+          "label": "Tidak ada jalan keluar",
+          "wrong": true
+        },
+        {
+          "id": "bmn-turnover",
+          "t": 3.4,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "label": "Umpan dipaksa, dipotong",
+          "wrong": true
+        }
+      ],
+      "outcome": "turnover"
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "O1",
+      "mission": { "id": "Bawa bola keluar dari jebakan lewat umpan pendek, bukan lewat dribble." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Maju ke depan, JANGAN ke sudut. Sudut adalah tempat jebakan paling kuat." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Jaga dribble hidup, lihat ke tengah, dan umpan pendek ke pemain tengah." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Setelah mengumpan, lari mengisi di belakang bola sebagai opsi kembali." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Jangan ikut masuk ke jalur lebar — dua jalur sudah terisi." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Siap jadi penerima bila bek terakhir menutup kedua jalur." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah bek kedua datang menjebak?" },
+        { "id": "Di mana pemain tengah berada?" },
+        { "id": "Apakah aku menuju sudut lapangan?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Dua bek datang menjebak" },
+          "thenDo": { "id": "Umpan pendek ke pemain tengah" }
+        },
+        {
+          "ifCue": { "id": "Jalur tengah tertutup" },
+          "thenDo": { "id": "Umpan balik ke pemain di belakang" }
+        },
+        {
+          "ifCue": { "id": "Tidak ada tekanan" },
+          "thenDo": { "id": "Dribble maju cepat sebelum press terbentuk" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Dribble ke sudut lapangan — jebakan terkuat ada di sana." },
+        { "id": "Mengangkat dribble sebelum punya penerima." },
+        { "id": "Umpan lambung melewati jebakan; itu umpan yang paling sering dicuri." }
+      ],
+      "calls": [
+        "Middle!",
+        "Ball!",
+        "Release!"
+      ]
+    },
+    {
+      "playerId": "O3",
+      "mission": { "id": "Jadi pemain tengah: selalu tersedia, lalu ubah press menjadi 3 lawan 2." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": {
+            "id": "Berdiri di tengah lapangan. Tugasmu adalah selalu bisa dilihat pembawa bola."
+          }
+        },
+        {
+          "phaseId": "p2",
+          "text": {
+            "id": "Flash ke arah bola saat jebakan mulai terbentuk. Jangan menunggu dipanggil."
+          }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Setelah menerima bola, putar badan ke depan dan maju cepat ke tengah." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Berhenti di garis 3 poin dan paksa bek terakhir memilih satu jalur." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Umpan ke jalur SEBERANG arah gerak bek terakhir." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah jebakan sedang terbentuk di sekitar pembawa bola?" },
+        { "id": "Ke jalur mana bek terakhir bergeser?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Jebakan terbentuk" },
+          "thenDo": { "id": "Flash ke tengah dan minta bola" }
+        },
+        {
+          "ifCue": { "id": "Bek terakhir ke jalur kiri" },
+          "thenDo": { "id": "Umpan ke jalur kanan" },
+          "branchId": "b-out-right"
+        },
+        {
+          "ifCue": { "id": "Bek terakhir ke jalur kanan" },
+          "thenDo": { "id": "Umpan ke jalur kiri" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Menjauh dari tengah sehingga pembawa bola tidak punya jalan keluar." },
+        { "id": "Terus dribble ke bek terakhir — itu menyatukan pertahanan." },
+        { "id": "Mengambil pull-up dan membuang keunggulan jumlah." }
+      ],
+      "calls": [
+        "Middle!",
+        "Here!",
+        "Go!"
+      ]
+    },
+    {
+      "playerId": "O2",
+      "mission": { "id": "Jadi opsi umpan balik yang aman di belakang bola." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai sejajar pembawa bola di sisi berlawanan." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Saat jebakan terbentuk, turun ke BELAKANG bola, bukan ke depan." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Setelah bola keluar, lari mengisi di belakang serangan." }
+        },
+        { "phaseId": "p4", "text": { "id": "Siap jadi penerima bila 3 lawan 2 tertutup." } },
+        { "phaseId": "p5", "text": { "id": "Jangan menumpuk di jalur yang sudah terisi." } }
+      ],
+      "cues": [
+        { "id": "Apakah pembawa bola punya jalan keluar?" },
+        { "id": "Apakah ada bek yang meninggalkan aku untuk menjebak?" }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "Jebakan terbentuk" }, "thenDo": { "id": "Turun ke belakang bola" } },
+        {
+          "ifCue": { "id": "Bekku pergi menjebak" },
+          "thenDo": { "id": "Minta umpan — aku bebas" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Berdiri di depan bola sehingga umpan harus melewati jebakan." },
+        { "id": "Ikut lari ke depan dan meninggalkan pembawa bola tanpa opsi." },
+        { "id": "Berdiri sejajar dengan pemain tengah sehingga satu bek menjaga dua." }
+      ],
+      "calls": [
+        "Back!",
+        "Release!"
+      ]
+    },
+    {
+      "playerId": "O4",
+      "mission": { "id": "Lari jalur lebar kanan sampai ring, dan jangan melambat." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai di depan, siap lari begitu bola dikuasai." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Lari di JALUR LEBAR, dekat sideline — lebar memaksa bek terakhir memilih." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Lari penuh. Pemain yang melambat membuat 3 lawan 2 jadi 2 lawan 2." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Masuk ke jalur ring dengan tangan siap, bukan menunggu di luar." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Finish dengan dua langkah — jangan ragu di depan ring." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah bek terakhir bergerak ke jalurku atau ke jalur seberang?" },
+        { "id": "Apakah jalurku cukup lebar untuk memaksa bek memilih?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bek terakhir ke jalur seberang" },
+          "thenDo": { "id": "Minta bola dan finish" },
+          "branchId": "b-out-right"
+        },
+        {
+          "ifCue": { "id": "Bek terakhir ke jalurku" },
+          "thenDo": { "id": "Teruskan lari; rekan di seberang jadi bebas" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Lari di jalur yang terlalu sempit sehingga satu bek menjaga dua jalur." },
+        { "id": "Melambat di garis 3 poin dan kehilangan keunggulan." },
+        { "id": "Menunggu bola di luar, bukan masuk ke jalur ring." }
+      ],
+      "calls": [
+        "Lane!",
+        "Run!",
+        "Ball!"
+      ]
+    },
+    {
+      "playerId": "O5",
+      "mission": { "id": "Lari jalur lebar kiri — cermin 4 di sisi berlawanan." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai di depan di sisi kiri." } },
+        { "phaseId": "p2", "text": { "id": "Lari di jalur lebar kiri, dekat sideline." } },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Jaga lebar. Dua jalur yang lebar adalah seluruh isi 3 lawan 2." }
+        },
+        {
+          "phaseId": "p4",
+          "text": {
+            "id": "Bila bek terakhir memilih jalurku, teruskan lari — rekan di seberang bebas."
+          }
+        },
+        { "phaseId": "p5", "text": { "id": "Rebound menyerang bila tembakan gagal." } }
+      ],
+      "cues": [
+        { "id": "Apakah bek terakhir memilih jalurku?" },
+        { "id": "Apakah aku dan 4 masih berada di dua jalur berbeda?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bek terakhir ke jalurku" },
+          "thenDo": { "id": "Teruskan lari; buka jalur seberang" }
+        },
+        {
+          "ifCue": { "id": "Bek terakhir ke jalur seberang" },
+          "thenDo": { "id": "Minta bola dan finish" },
+          "branchId": "b-out-left"
+        }
+      ],
+      "mistakes": [
+        { "id": "Melipir ke tengah sehingga kedua jalur jadi satu." },
+        { "id": "Berhenti berlari saat bola tidak datang." },
+        { "id": "Tidak masuk rebound setelah tembakan." }
+      ],
+      "calls": [
+        "Lane!",
+        "Wide!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "Dribble masuk ke sudut lapangan" },
+      "why": {
+        "id": "Sudut adalah tempat jebakan paling kuat: dua garis batas lapangan bekerja sebagai bek tambahan. Press break bergerak lewat tengah, bukan lewat tepi."
+      },
+      "branchId": "b-mistake-dribble-trap"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "Pemain tengah tidak tersedia" },
+      "why": {
+        "id": "Press break bergantung pada satu hal: selalu ada penerima di tengah. Tanpa itu, pembawa bola hanya punya umpan lambung yang mudah dicuri."
+      },
+      "branchId": "b-mistake-no-middle"
+    },
+    {
+      "id": "m3",
+      "title": { "id": "Dua pemain lari di jalur yang sama" },
+      "why": {
+        "id": "Satu bek terakhir hanya kalah bila harus memilih antara dua jalur yang berjauhan. Dua pelari di satu jalur membuat pilihan itu gratis."
+      }
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Mengangkat dribble sebelum punya penerima" },
+      "why": {
+        "id": "Tanpa dribble hidup, pembawa bola punya lima detik dan nol ancaman. Jebakan hampir selalu menang setelah itu."
+      }
+    },
+    {
+      "id": "m5",
+      "title": { "id": "Pull-up di 3 lawan 2" },
+      "why": {
+        "id": "Keunggulan jumlah hanya bernilai bila diubah menjadi tembakan di ring. Pull-up membuang seluruh keuntungan memecahkan press."
+      },
+      "branchId": "b-out-pullup"
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "Press 2-2-1 menjebak setelah bola melewati garis tengah." },
+      "response": {
+        "id": "Pemain tengah berdiri tepat di belakang garis jebakan; umpan pendek selalu lebih cepat daripada dua bek yang berlari."
+      }
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Press menolak umpan ke tengah dengan satu bek khusus." },
+      "response": { "id": "Umpan balik ke pemain di belakang bola, lalu serang sisi yang baru terbuka." }
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "Bek terakhir mundur sangat dalam melindungi ring." },
+      "response": {
+        "id": "Berhenti di garis 3 poin dan ambil tembakan terbuka, atau serang satu lawan satu dengan dua pelari menarik perhatian."
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": { "id": "Bek terakhir bergeser ke jalur kiri. Ke mana bola harus pergi?" },
+      "pauseAt": 5.3,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": {
+        "id": "Bek terakhir sudah menuju jalur kiri dan kamu mengumpan ke sana. Apa akibatnya?"
+      },
+      "pauseAt": 5.3,
+      "setupBranches": [
+        "b-out-left"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "Pemain tengah menjauh dan tidak tersedia. Apa yang terjadi pada pembawa bola?" },
+      "pauseAt": 5.3,
+      "setupBranches": [
+        "b-mistake-no-middle"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [],
+    "nextUp": [
+      "off-spread-pnr"
+    ]
+  },
+  "terms": [
+    "transisi",
+    "skip-pass",
+    "rim-runner",
+    "spacing"
+  ],
+  "origin": {
+    "id": "Prinsipnya tetap sama di semua level: press menukar tekanan dengan keunggulan jumlah di belakangnya, jadi jawabannya adalah umpan, bukan dribble."
+  }
+}

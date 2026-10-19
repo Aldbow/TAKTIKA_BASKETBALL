@@ -1,0 +1,789 @@
+{
+  "id": "special-blob-box",
+  "slug": "blob-box",
+  "title": { "id": "BLOB Box", "en": "BLOB Box" },
+  "category": "special",
+  "level": 2,
+  "court": "half",
+  "duration": 5.8,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "Inbound dari baseline dengan empat pemain membentuk kotak; dua screen silang membebaskan penembak di sudut dan satu pemain di top."
+  },
+  "whenToUse": {
+    "id": "Inbound baseline di setengah lapangan lawan, terutama saat butuh tembakan cepat setelah timeout atau di akhir kuarter."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": 5.4, "y": -2, "facing": 180 },
+      "hasBall": true
+    },
+    {
+      "id": "O2",
+      "team": "offense",
+      "role": "SG",
+      "start": { "x": -1.6, "y": 3.4, "facing": 180 }
+    },
+    {
+      "id": "O3",
+      "team": "offense",
+      "role": "SF",
+      "start": { "x": 1.6, "y": 3.4, "facing": 180 }
+    },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": -1.6, "y": 0.8, "facing": 180 }
+    },
+    {
+      "id": "O5",
+      "team": "offense",
+      "role": "C",
+      "start": { "x": 1.6, "y": 0.8, "facing": 180 }
+    },
+    {
+      "id": "X1",
+      "team": "defense",
+      "guards": "O1",
+      "start": { "x": 4.5, "y": -0.8, "facing": 0 }
+    },
+    {
+      "id": "X2",
+      "team": "defense",
+      "guards": "O2",
+      "start": { "x": -1.4, "y": 2.4, "facing": 0 }
+    },
+    {
+      "id": "X3",
+      "team": "defense",
+      "guards": "O3",
+      "start": { "x": 1.4, "y": 2.4, "facing": 0 }
+    },
+    {
+      "id": "X4",
+      "team": "defense",
+      "guards": "O4",
+      "start": { "x": -1.5, "y": -0.2, "facing": 0 }
+    },
+    {
+      "id": "X5",
+      "team": "defense",
+      "guards": "O5",
+      "start": { "x": 1.5, "y": -0.2, "facing": 0 }
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Formasi kotak" },
+      "tStart": 0,
+      "tEnd": 1.2,
+      "narration": {
+        "id": "Empat pemain membentuk kotak di depan ring. Pertahanan belum tahu siapa yang akan di-screen."
+      },
+      "focus": [
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Screen silang" },
+      "tStart": 1.2,
+      "tEnd": 2.4,
+      "narration": {
+        "id": "4 memasang screen untuk 3, dan 5 memasang screen untuk 2. Dua arah berlawanan dalam satu waktu."
+      },
+      "focus": [
+        "O4",
+        "O3",
+        "O5",
+        "O2"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Inbound" },
+      "tStart": 2.4,
+      "tEnd": 3.4,
+      "narration": {
+        "id": "Umpan inbound ke penembak yang keluar ke sudut sisi bola. Lima detik inbound cukup untuk dua screen."
+      },
+      "focus": [
+        "O1",
+        "O3"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Keputusan" },
+      "tStart": 3.4,
+      "tEnd": 4.6,
+      "narration": {
+        "id": "Penembak menerima bola dengan kaki siap. Trail bek masih satu langkah di belakang."
+      },
+      "focus": [
+        "O3"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": { "id": "Hasil" },
+      "tStart": 4.6,
+      "tEnd": 5.8,
+      "narration": { "id": "Tangkap-tembak dari sudut sebelum bek sampai." },
+      "focus": [
+        "O3"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-o4-to-screen",
+      "t": 1,
+      "dur": 0.7,
+      "type": "move",
+      "actor": "O4",
+      "path": [[-1.6, 0.8], [-0.3, 1.8]],
+      "speed": "jog",
+      "label": "Ke titik screen"
+    },
+    {
+      "id": "e-o4-screen",
+      "t": 1.7,
+      "dur": 0.7,
+      "type": "screen",
+      "actor": "O4",
+      "target": "X3",
+      "path": [[-0.3, 1.8], [-0.2, 1.85]],
+      "label": "Cross screen"
+    },
+    {
+      "id": "e-o5-to-screen",
+      "t": 1.1,
+      "dur": 0.7,
+      "type": "move",
+      "actor": "O5",
+      "path": [[1.6, 0.8], [0.4, 2.7]],
+      "speed": "jog",
+      "label": "Ke titik screen"
+    },
+    {
+      "id": "e-o5-screen",
+      "t": 1.8,
+      "dur": 0.7,
+      "type": "screen",
+      "actor": "O5",
+      "target": "X2",
+      "path": [[0.4, 2.7], [0.45, 2.75]],
+      "label": "Screen untuk 2"
+    },
+    {
+      "id": "e-o3-cut",
+      "t": 1.9,
+      "dur": 1.1,
+      "type": "cut",
+      "actor": "O3",
+      "path": [[1.6, 3.4], [3.6, 2.2], [5.6, 1]],
+      "speed": "sprint",
+      "label": "Keluar ke sudut"
+    },
+    {
+      "id": "e-x3-trail",
+      "t": 2,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X3",
+      "path": [[1.4, 2.4], [3.2, 1.6], [4.8, 0.8]],
+      "speed": "sprint",
+      "label": "Tertinggal satu langkah"
+    },
+    {
+      "id": "e-o2-cut",
+      "t": 2.2,
+      "dur": 1.1,
+      "type": "cut",
+      "actor": "O2",
+      "path": [[-1.6, 3.4], [-1, 5.4], [-0.4, 7.2]],
+      "speed": "sprint",
+      "label": "Pop ke top"
+    },
+    {
+      "id": "e-x2-trail",
+      "t": 2.3,
+      "dur": 1.1,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[-1.4, 2.4], [-0.9, 4.4], [-0.5, 6.2]],
+      "speed": "sprint"
+    },
+    {
+      "id": "e-inbound",
+      "t": 2.8,
+      "dur": 0.5,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O3",
+      "label": "Umpan inbound"
+    },
+    {
+      "id": "e-o1-step-in",
+      "t": 3.3,
+      "dur": 0.9,
+      "type": "move",
+      "actor": "O1",
+      "path": [[5.4, -2], [5.9, -0.6], [6.3, 0.7]],
+      "speed": "jog",
+      "label": "Masuk lapangan"
+    },
+    {
+      "id": "e-x1-recover",
+      "t": 3.2,
+      "dur": 0.9,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[4.5, -0.8], [3.6, 0.3], [2.8, 1.2]],
+      "speed": "sprint"
+    },
+    {
+      "id": "e-o3-shot",
+      "t": 4,
+      "dur": 1.1,
+      "type": "shot",
+      "actor": "O3",
+      "target": "rim",
+      "label": "Corner 3",
+      "made": true
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 3.6,
+      "owner": "O3",
+      "cue": {
+        "id": "Bek trail masih satu langkah di belakang, dan X5 belum meninggalkan paint. Berapa waktu yang kamu punya?"
+      },
+      "options": [
+        {
+          "id": "o-shoot",
+          "label": { "id": "Tangkap-tembak dari sudut" },
+          "correct": true,
+          "explain": {
+            "id": "Keluar dari cross screen memberi satu langkah penuh, dan sudut adalah 3 poin terdekat di lapangan (6,60 m). Dengan kaki siap, ini tembakan terbaik dari set ini."
+          },
+          "branchId": "b-out-shoot",
+          "correctWhen": "Trail bek lebih dari satu langkah di belakang",
+          "targetPlayer": "O3"
+        },
+        {
+          "id": "o-drive",
+          "label": { "id": "Drive baseline ke ring" },
+          "correct": false,
+          "explain": {
+            "id": "Drive baru benar setelah bek tiba dengan badan tinggi. Sekarang X5 masih di paint — drive langsung masuk ke pelindung ring."
+          },
+          "branchId": "b-out-drive",
+          "correctWhen": "Trail bek sudah tiba dan melompat"
+        },
+        {
+          "id": "o-top",
+          "label": { "id": "Umpan ke 2 di top" },
+          "correct": false,
+          "explain": {
+            "id": "2 memang bebas, tetapi tembakan dari top lebih jauh dan kamu sudah punya tembakan terbuka di tangan."
+          },
+          "targetPlayer": "O2"
+        },
+        {
+          "id": "o-post",
+          "label": { "id": "Umpan ke 5 di paint" },
+          "correct": false,
+          "explain": {
+            "id": "5 baru selesai memasang screen dan masih dijaga X5. Umpan ke paint yang penuh adalah umpan paling berisiko di BLOB."
+          },
+          "targetPlayer": "O5"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-out-shoot",
+      "group": "outcome",
+      "label": { "id": "Tangkap-tembak sudut" },
+      "fromT": 3.8,
+      "replaces": [],
+      "events": [
+        {
+          "id": "bos-shot",
+          "t": 4,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O3",
+          "target": "rim",
+          "label": "Corner 3",
+          "made": true
+        }
+      ],
+      "counter": {
+        "id": "Cross screen di kotak memberi satu langkah. Satu langkah cukup untuk tembakan sudut."
+      },
+      "outcome": "score"
+    },
+    {
+      "id": "b-out-drive",
+      "group": "outcome",
+      "label": { "id": "Drive baseline" },
+      "fromT": 3.8,
+      "replaces": [
+        "e-o3-shot"
+      ],
+      "events": [
+        {
+          "id": "bod-drive",
+          "t": 4,
+          "dur": 1,
+          "type": "dribble",
+          "actor": "O3",
+          "path": [[5.6, 1], [4.2, 0.4], [2.8, 0.3]],
+          "speed": "sprint",
+          "label": "Drive baseline"
+        },
+        {
+          "id": "bod-shot",
+          "t": 5.1,
+          "dur": 0.7,
+          "type": "shot",
+          "actor": "O3",
+          "target": "rim",
+          "label": "Di-contest X5",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-mistake-no-screen",
+      "group": "mistake",
+      "label": { "id": "Salah: screen dipasang terlalu jauh dari bek" },
+      "fromT": 1,
+      "replaces": [
+        "e-o4-to-screen",
+        "e-o4-screen",
+        "e-o3-cut",
+        "e-x3-trail",
+        "e-o3-shot"
+      ],
+      "events": [
+        {
+          "id": "bmn-o4-far",
+          "t": 1,
+          "dur": 0.9,
+          "type": "move",
+          "actor": "O4",
+          "path": [[-1.6, 0.8], [-1.2, 1.6], [-0.9, 2.2]],
+          "speed": "walk",
+          "label": "Screen tidak menyentuh bek",
+          "wrong": true
+        },
+        {
+          "id": "bmn-x3-free",
+          "t": 1.9,
+          "dur": 1.2,
+          "type": "rotate",
+          "actor": "X3",
+          "path": [[1.4, 2.4], [3, 1.8], [4.6, 1.2]],
+          "speed": "sprint",
+          "label": "Bek lewat tanpa hambatan"
+        },
+        {
+          "id": "bmn-o3-covered",
+          "t": 1.9,
+          "dur": 1.2,
+          "type": "cut",
+          "actor": "O3",
+          "path": [[1.6, 3.4], [3.4, 2.4], [5.2, 1.4]],
+          "speed": "sprint",
+          "label": "Keluar tanpa keunggulan"
+        }
+      ],
+      "outcome": "reset"
+    },
+    {
+      "id": "b-mistake-late-inbound",
+      "group": "mistake",
+      "label": { "id": "Salah: inbound terlalu lama" },
+      "fromT": 2.4,
+      "replaces": [
+        "e-inbound",
+        "e-o1-step-in",
+        "e-o3-shot"
+      ],
+      "events": [
+        {
+          "id": "bml-wait",
+          "t": 2.4,
+          "dur": 1.8,
+          "type": "move",
+          "actor": "O1",
+          "path": [[5.4, -2], [5.5, -2.1], [5.6, -2]],
+          "speed": "walk",
+          "label": "Menunggu terlalu lama",
+          "wrong": true
+        },
+        {
+          "id": "bml-x3-recover",
+          "t": 3,
+          "dur": 1.2,
+          "type": "rotate",
+          "actor": "X3",
+          "path": [[4.8, 0.8], [5.3, 0.9], [5.6, 1]],
+          "speed": "sprint",
+          "label": "Bek sudah pulih"
+        },
+        {
+          "id": "bml-violation",
+          "t": 4.4,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "label": "Pelanggaran 5 detik",
+          "wrong": true
+        }
+      ],
+      "outcome": "turnover"
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "O1",
+      "mission": { "id": "Pengumpan inbound: baca screen, kirim bola tepat waktu, lalu masuk lapangan." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Berdiri di luar baseline dengan pandangan ke seluruh kotak." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Jangan mengumpan sebelum screen terjadi — tunggu satu hitungan." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Umpan ke tangan penembak, setinggi dada, bukan ke badan." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Langsung masuk lapangan setelah mengumpan; kamu jadi opsi kelima." }
+        },
+        { "phaseId": "p5", "text": { "id": "Siap rebound sisi bola." } }
+      ],
+      "cues": [
+        { "id": "Apakah screen sudah terjadi?" },
+        { "id": "Berapa detik tersisa dari lima detik inbound?" },
+        { "id": "Siapa yang paling bebas: penembak sudut atau pemain top?" }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "Screen berhasil" }, "thenDo": { "id": "Umpan ke penembak sudut" } },
+        {
+          "ifCue": { "id": "Semua di-deny" },
+          "thenDo": { "id": "Umpan ke pemain top, lalu masuk lapangan" }
+        },
+        {
+          "ifCue": { "id": "Waktu hampir habis" },
+          "thenDo": { "id": "Umpan ke penerima terdekat, jangan sampai pelanggaran" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Mengumpan sebelum screen terjadi." },
+        { "id": "Menunggu terlalu lama sampai pelanggaran 5 detik." },
+        { "id": "Umpan lambung yang memberi bek waktu untuk pulih." }
+      ],
+      "calls": [
+        "Tunggu!",
+        "Ball!",
+        "Go!"
+      ]
+    },
+    {
+      "playerId": "O3",
+      "mission": { "id": "Penembak utama: keluar dari cross screen dan tembak dari sudut." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Mulai di sudut kanan atas kotak. Jangan bergerak sebelum screen siap." }
+        },
+        {
+          "phaseId": "p2",
+          "text": {
+            "id": "Tunggu 4 berdiri diam, lalu lewat RAPAT ke bahunya — satu langkah jauh saja merusak screen."
+          }
+        },
+        { "phaseId": "p3", "text": { "id": "Keluar ke sudut dengan kaki sudah siap tembak." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Lihat jarak bek trail. Satu langkah berarti tembak." }
+        },
+        { "phaseId": "p5", "text": { "id": "Tembak tanpa langkah tambahan." } }
+      ],
+      "cues": [
+        { "id": "Berapa jarak bek trail di belakangku?" },
+        { "id": "Apakah X5 masih di paint?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bek trail satu langkah di belakang" },
+          "thenDo": { "id": "Tangkap-tembak sudut" },
+          "branchId": "b-out-shoot"
+        },
+        {
+          "ifCue": { "id": "Bek tiba dengan badan tinggi" },
+          "thenDo": { "id": "Drive baseline" },
+          "branchId": "b-out-drive"
+        }
+      ],
+      "mistakes": [
+        { "id": "Lewat terlalu jauh dari screen sehingga bek bisa mengikuti." },
+        { "id": "Keluar sebelum screen terpasang." },
+        { "id": "Menerima bola dengan kaki belum siap sehingga tembakan terlambat." }
+      ],
+      "calls": [
+        "Screen!",
+        "Ball!",
+        "Shot!"
+      ]
+    },
+    {
+      "playerId": "O4",
+      "mission": { "id": "Screener bawah: pasang cross screen legal untuk penembak." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai di block kiri kotak." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Naik ke titik screen dan BERDIRI DIAM. Gerakan sedikit saja berarti foul." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Setelah screen, buka ke ring sebagai opsi kedua." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Perhatikan apakah bekmu meninggalkanmu untuk membantu penembak." }
+        },
+        { "phaseId": "p5", "text": { "id": "Rebound menyerang." } }
+      ],
+      "cues": [
+        { "id": "Apakah bek penembak akan lewat atas atau bawah screen?" },
+        { "id": "Apakah bekku sendiri meninggalkanku?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bek lewat atas" },
+          "thenDo": { "id": "Screen lebih rendah agar ia terhambat" }
+        },
+        {
+          "ifCue": { "id": "Bekku membantu penembak" },
+          "thenDo": { "id": "Buka ke ring; aku jadi bebas" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Memasang screen terlalu jauh dari bek sehingga tidak ada kontak." },
+        { "id": "Bergerak saat kontak — offensive foul." },
+        { "id": "Berdiri diam setelah screen dan tidak menjadi opsi kedua." }
+      ],
+      "calls": [
+        "Screen kanan!",
+        "Open!"
+      ]
+    },
+    {
+      "playerId": "O5",
+      "mission": { "id": "Screener atas: bebaskan pemain top, lalu jadi ancaman di paint." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai di block kanan kotak." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Naik memasang screen untuk 2 yang akan pop ke top." }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Setelah screen, buka ke paint; kamu opsi ketiga." }
+        },
+        { "phaseId": "p4", "text": { "id": "Jangan berdiri lebih dari tiga detik di paint." } },
+        { "phaseId": "p5", "text": { "id": "Rebound menyerang di tengah." } }
+      ],
+      "cues": [
+        { "id": "Apakah 2 sudah lewat screen-ku?" },
+        { "id": "Apakah X5 ikut membantu ke penembak sudut?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "2 sudah lewat" },
+          "thenDo": { "id": "Buka ke paint sebagai opsi ketiga" }
+        },
+        {
+          "ifCue": { "id": "X5 membantu ke sudut" },
+          "thenDo": { "id": "Seal dan minta bola di paint" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Screen terlambat sehingga 2 keluar tanpa keunggulan." },
+        { "id": "Berdiri di paint lebih dari tiga detik." },
+        { "id": "Tidak masuk rebound setelah tembakan." }
+      ],
+      "calls": [
+        "Screen!",
+        "Post!"
+      ]
+    },
+    {
+      "playerId": "O2",
+      "mission": { "id": "Opsi kedua: pop ke top sebagai penembak dan ventil pengaman." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Mulai di sudut kiri atas kotak." } },
+        { "phaseId": "p2", "text": { "id": "Tunggu screen 5, lalu pop ke top." } },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Kaki siap di top; kamu opsi kedua bila sudut di-deny." }
+        },
+        { "phaseId": "p4", "text": { "id": "Perhatikan apakah bekmu tertinggal di screen." } },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Siap jadi penerima bila inbound tidak bisa ke sudut." }
+        }
+      ],
+      "cues": [
+        { "id": "Apakah bekku tertinggal di screen?" },
+        { "id": "Apakah penembak sudut di-deny?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Bekku tertinggal" },
+          "thenDo": { "id": "Minta bola dan tembak dari top" }
+        },
+        {
+          "ifCue": { "id": "Sudut di-deny" },
+          "thenDo": { "id": "Jadi ventil pengaman di top" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Pop sebelum screen terpasang." },
+        { "id": "Berhenti di dalam garis 3 poin." },
+        { "id": "Tidak melihat bola saat pop sehingga umpan terlewat." }
+      ],
+      "calls": [
+        "Top!",
+        "Here!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "Screen dipasang terlalu jauh dari bek" },
+      "why": {
+        "id": "Screen yang tidak menyentuh bek hanya memindahkan dua pemain. Screener harus berdiri tepat di jalur bek, dan penembak harus lewat RAPAT."
+      },
+      "branchId": "b-mistake-no-screen"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "Inbound terlalu lama" },
+      "why": {
+        "id": "BLOB punya batas lima detik. Menunggu kesempatan sempurna sering berakhir dengan pelanggaran dan possession hilang tanpa tembakan."
+      },
+      "branchId": "b-mistake-late-inbound"
+    },
+    {
+      "id": "m3",
+      "title": { "id": "Penembak keluar sebelum screen siap" },
+      "why": {
+        "id": "Keluar terlalu cepat berarti lewat sebelum screener berdiri diam — bek tinggal mengikuti tanpa hambatan."
+      }
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Dua pemain keluar ke sisi yang sama" },
+      "why": {
+        "id": "Kotak bekerja karena dua screen mengarah ke arah BERLAWANAN. Bila keduanya ke satu sisi, satu bek cukup untuk keduanya."
+      }
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "Pertahanan switch setiap screen di kotak." },
+      "response": {
+        "id": "Screener langsung buka ke ring; switch di dekat ring selalu meninggalkan satu langkah."
+      }
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Bek penembak lewat bawah screen untuk memotong jalur ke sudut." },
+      "response": { "id": "Penembak curl ke ring, bukan keluar ke sudut." }
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "Satu bek khusus menolak umpan inbound ke sudut." },
+      "response": { "id": "Umpan ke pemain yang pop ke top, lalu jalankan aksi kedua dari sana." }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": {
+        "id": "Bek trail satu langkah di belakang dan X5 masih di paint. Apa yang kamu lakukan?"
+      },
+      "pauseAt": 3.6,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": { "id": "Screen 4 tidak menyentuh bek sama sekali. Apakah tembakan masih terbuka?" },
+      "pauseAt": 3.6,
+      "setupBranches": [
+        "b-mistake-no-screen"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "Pengumpan menunggu terlalu lama. Apa yang terjadi pada possession?" },
+      "pauseAt": 3.6,
+      "setupBranches": [
+        "b-mistake-late-inbound"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [
+      "set-horns"
+    ],
+    "nextUp": []
+  },
+  "terms": [
+    "blob",
+    "ball-screen",
+    "pin-down",
+    "corner",
+    "post-up",
+    "box-out",
+    "top-of-key"
+  ],
+  "origin": {
+    "id": "Formasi kotak jadi standar BLOB karena empat pemain yang berdekatan bisa saling memasang screen tanpa perlu gerakan panjang lebih dulu."
+  }
+}

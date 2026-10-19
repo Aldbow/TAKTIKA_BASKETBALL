@@ -1,0 +1,145 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background: var(--bg-void);
+    color-scheme: dark;
+  }
+
+  [data-theme='whiteboard'] html,
+  html:has([data-theme='whiteboard']) {
+    color-scheme: light;
+  }
+
+  body {
+    background: var(--bg-void);
+    color: var(--text-primary);
+    font-family: var(--font-body), system-ui, sans-serif;
+    /* PRD §9: isi teks minimal 16 px di mobile */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em; /* tracking -1% */
+  }
+
+  /* Angka HUD selalu monospace & tabular supaya tidak bergeser saat berubah */
+  .hud {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+
+  /* PRD §15: semua fitur bisa dipakai dengan keyboard saja — fokus harus terlihat */
+  :focus-visible {
+    outline: 2px solid var(--line-court);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--team-offense) 35%, transparent);
+    color: var(--text-primary);
+  }
+
+  /* Istilah glosarium: bergaris bawah di mana saja (PRD §11 Navigasi) */
+  .term {
+    border-bottom: 1px dashed color-mix(in srgb, var(--team-offense) 60%, transparent);
+    cursor: help;
+  }
+}
+
+@layer components {
+  /* Panel kaca — PRD §9: blur 20 px, tepi 1 px putih 8%, satu sudut terpotong 12 px */
+  .glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-panel);
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--bevel)) 0,
+      100% var(--bevel),
+      100% 100%,
+      0 100%
+    );
+  }
+
+  .glass-flat {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-panel);
+  }
+
+  /* Tanda ukur kecil ala HUD siaran olahraga */
+  .hud-ticks {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--line-hairline) 0 1px,
+      transparent 1px 8px
+    );
+  }
+
+  .scrollable {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--text-secondary) 40%, transparent) transparent;
+  }
+
+  .scrollable::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollable::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--text-secondary) 35%, transparent);
+    border-radius: 999px;
+  }
+
+  /* Target sentuh >= 44x44 px (PRD §15 Responsif) */
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grid-floor {
+    background-image:
+      linear-gradient(var(--line-hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-hairline) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.4;
+  }
+}

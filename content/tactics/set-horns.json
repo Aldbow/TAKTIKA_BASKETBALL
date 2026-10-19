@@ -1,0 +1,833 @@
+{
+  "id": "set-horns",
+  "slug": "horns",
+  "title": { "id": "Horns", "en": "Horns" },
+  "category": "set-play",
+  "level": 2,
+  "court": "half",
+  "duration": 6.4,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "Dua big berdiri di kedua elbow dan dua wing di sudut; PG memilih sisi mana yang akan dipakai untuk pick-and-roll."
+  },
+  "whenToUse": {
+    "id": "Set pembuka yang fleksibel: satu formasi menghasilkan banyak aksi, dan pertahanan harus menunggu sampai PG memilih sisi."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": 0, "y": 8.6, "facing": 0 },
+      "hasBall": true
+    },
+    {
+      "id": "O2",
+      "team": "offense",
+      "role": "SG",
+      "start": { "x": 6.6, "y": 0.6, "facing": 0 }
+    },
+    {
+      "id": "O3",
+      "team": "offense",
+      "role": "SF",
+      "start": { "x": -6.6, "y": 0.6, "facing": 0 }
+    },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": -2.45, "y": 4.3, "facing": 90 }
+    },
+    {
+      "id": "O5",
+      "team": "offense",
+      "role": "C",
+      "start": { "x": 2.45, "y": 4.3, "facing": 270 }
+    },
+    {
+      "id": "X1",
+      "team": "defense",
+      "guards": "O1",
+      "start": { "x": 0, "y": 7.4, "facing": 180 }
+    },
+    {
+      "id": "X2",
+      "team": "defense",
+      "guards": "O2",
+      "start": { "x": 5.8, "y": 1.4, "facing": 180 }
+    },
+    {
+      "id": "X3",
+      "team": "defense",
+      "guards": "O3",
+      "start": { "x": -5.8, "y": 1.4, "facing": 180 }
+    },
+    {
+      "id": "X4",
+      "team": "defense",
+      "guards": "O4",
+      "start": { "x": -2.2, "y": 3.3, "facing": 180 }
+    },
+    {
+      "id": "X5",
+      "team": "defense",
+      "guards": "O5",
+      "start": { "x": 2.2, "y": 3.3, "facing": 180 }
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Formasi Horns" },
+      "tStart": 0,
+      "tEnd": 1.4,
+      "narration": {
+        "id": "Dua big di elbow, dua penembak di sudut, paint kosong. Pertahanan belum tahu sisi mana yang akan dipakai."
+      },
+      "focus": [
+        "O1",
+        "O4",
+        "O5"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Pilih sisi" },
+      "tStart": 1.4,
+      "tEnd": 2.6,
+      "narration": {
+        "id": "1 memilih sisi kanan. 5 naik memasang screen; 4 tetap di elbow sebagai ancaman kedua."
+      },
+      "focus": [
+        "O1",
+        "O5"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Roll + pop" },
+      "tStart": 2.6,
+      "tEnd": 4,
+      "narration": {
+        "id": "5 roll ke ring, dan tepat bersamaan 4 pop ke top. Dua ancaman dari dua arah berlawanan."
+      },
+      "focus": [
+        "O5",
+        "O4"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Keputusan" },
+      "tStart": 4,
+      "tEnd": 5.2,
+      "narration": {
+        "id": "Waktu melambat. 1 membaca: lob ke roller, umpan ke big yang pop, kick ke sudut, atau pull-up."
+      },
+      "focus": [
+        "O1"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": { "id": "Hasil" },
+      "tStart": 5.2,
+      "tEnd": 6.4,
+      "narration": { "id": "X4 ikut turun menahan roller, jadi 4 bebas menembak dari top." },
+      "focus": [
+        "O4"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-o1-setup",
+      "t": 0,
+      "dur": 1.4,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[0, 8.6], [-0.9, 8.8], [0.2, 8.9]],
+      "speed": "jog",
+      "label": "Baca pertahanan"
+    },
+    {
+      "id": "e-x1-mirror",
+      "t": 0.1,
+      "dur": 1.3,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[0, 7.4], [-0.8, 7.6], [0.1, 7.7]],
+      "speed": "slide"
+    },
+    {
+      "id": "e-o5-up",
+      "t": 1.1,
+      "dur": 1,
+      "type": "move",
+      "actor": "O5",
+      "path": [[2.45, 4.3], [1.8, 6.4], [1.2, 8.2]],
+      "speed": "jog",
+      "label": "Naik ke screen"
+    },
+    {
+      "id": "e-x5-follow",
+      "t": 1.2,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[2.2, 3.3], [1.9, 5.5], [1.6, 7.3]],
+      "speed": "sprint"
+    },
+    {
+      "id": "e-o5-screen",
+      "t": 2,
+      "dur": 0.6,
+      "type": "screen",
+      "actor": "O5",
+      "target": "X1",
+      "path": [[1.2, 8.2], [1.1, 8.15]],
+      "label": "Ball screen"
+    },
+    {
+      "id": "e-o1-use",
+      "t": 2,
+      "dur": 1,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[0.2, 8.9], [1.7, 8.5], [2.9, 7.7], [3.7, 6.7]],
+      "speed": "jog",
+      "label": "Pakai screen"
+    },
+    {
+      "id": "e-x1-chase",
+      "t": 2.05,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[0.1, 7.7], [1.5, 8.9], [3, 8.3], [3.8, 7.4]],
+      "speed": "sprint",
+      "label": "Kejar lewat atas"
+    },
+    {
+      "id": "e-x5-drop",
+      "t": 2.3,
+      "dur": 1.2,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[1.6, 7.3], [1.9, 6], [2.1, 4.7]],
+      "speed": "slide",
+      "label": "Drop"
+    },
+    {
+      "id": "e-o5-roll",
+      "t": 2.9,
+      "dur": 1.2,
+      "type": "cut",
+      "actor": "O5",
+      "path": [[1.1, 8.15], [0.8, 6], [0.5, 3.6], [0.4, 1.6]],
+      "speed": "sprint",
+      "label": "Roll ke ring"
+    },
+    {
+      "id": "e-o4-pop",
+      "t": 3,
+      "dur": 1.1,
+      "type": "move",
+      "actor": "O4",
+      "path": [[-2.45, 4.3], [-1.7, 6.4], [-1, 8.1]],
+      "speed": "jog",
+      "label": "Pop ke top"
+    },
+    {
+      "id": "e-x4-tag",
+      "t": 3.3,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X4",
+      "path": [[-2.2, 3.3], [-1.4, 3], [-0.6, 2.8]],
+      "speed": "sprint",
+      "label": "Tag roller"
+    },
+    {
+      "id": "e-pass-o4",
+      "t": 4.4,
+      "dur": 0.55,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O4",
+      "label": "Umpan ke top"
+    },
+    {
+      "id": "e-o4-shot",
+      "t": 5.2,
+      "dur": 1.1,
+      "type": "shot",
+      "actor": "O4",
+      "target": "rim",
+      "label": "Trailer 3",
+      "made": true
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 4.2,
+      "owner": "O1",
+      "cue": { "id": "Dua big menyerang dua arah berlawanan. Bek mana yang meninggalkan posisinya?" },
+      "options": [
+        {
+          "id": "o-pop",
+          "label": { "id": "Umpan ke 4 yang pop ke top" },
+          "correct": true,
+          "explain": {
+            "id": "X4 memilih menahan roller, jadi 4 bebas di top. Inilah inti Horns: satu bek tidak bisa menjaga dua big yang bergerak berlawanan arah."
+          },
+          "branchId": "b-out-pop",
+          "correctWhen": "X4 turun menahan roller",
+          "targetPlayer": "O4"
+        },
+        {
+          "id": "o-lob",
+          "label": { "id": "Lob ke 5 yang roll" },
+          "correct": false,
+          "explain": {
+            "id": "X5 sudah drop ke jalur roll dan X4 juga ikut tag. Dua bek di satu jalur — lob akan di-contest."
+          },
+          "branchId": "b-out-lob",
+          "correctWhen": "X5 terlambat dan X4 tidak tag",
+          "targetPlayer": "O5"
+        },
+        {
+          "id": "o-corner",
+          "label": { "id": "Kick ke 2 di sudut kanan" },
+          "correct": false,
+          "explain": {
+            "id": "X2 masih menempel 2 dan tidak ikut membantu. Umpan ini tidak menghukum apa pun."
+          },
+          "targetPlayer": "O2"
+        },
+        {
+          "id": "o-pullup",
+          "label": { "id": "Pull-up dari wing" },
+          "correct": false,
+          "explain": {
+            "id": "Tembakan 2 poin jarak menengah sambil ada penembak 3 poin bebas di top adalah pilihan paling tidak efisien."
+          },
+          "branchId": "b-out-pullup",
+          "correctWhen": "X5 drop sangat dalam"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-out-pop",
+      "group": "outcome",
+      "label": { "id": "Umpan ke big yang pop" },
+      "fromT": 4.3,
+      "replaces": [],
+      "events": [
+        {
+          "id": "bop-pass",
+          "t": 4.4,
+          "dur": 0.55,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O4",
+          "label": "Umpan ke top"
+        },
+        {
+          "id": "bop-shot",
+          "t": 5.2,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O4",
+          "target": "rim",
+          "label": "Trailer 3",
+          "made": true
+        }
+      ],
+      "counter": {
+        "id": "Pertahanan harus memilih antara roller dan big yang pop — Horns memaksa pilihan itu setiap possession."
+      },
+      "outcome": "score"
+    },
+    {
+      "id": "b-out-lob",
+      "group": "outcome",
+      "label": { "id": "Lob ke roller" },
+      "fromT": 4.3,
+      "replaces": [
+        "e-pass-o4",
+        "e-o4-shot"
+      ],
+      "events": [
+        {
+          "id": "bol-pass",
+          "t": 4.4,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O5",
+          "label": "Lob"
+        },
+        {
+          "id": "bol-shot",
+          "t": 5.1,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Di-contest dua bek",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-out-pullup",
+      "group": "outcome",
+      "label": { "id": "Pull-up dari wing" },
+      "fromT": 4.3,
+      "replaces": [
+        "e-pass-o4",
+        "e-o4-shot"
+      ],
+      "events": [
+        {
+          "id": "bou-shot",
+          "t": 4.4,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O1",
+          "target": "rim",
+          "label": "Pull-up 2 poin",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-cov-switch",
+      "group": "coverage",
+      "label": { "id": "Switch" },
+      "fromT": 2.3,
+      "replaces": [
+        "e-x5-drop",
+        "e-x1-chase",
+        "e-o5-roll",
+        "e-x4-tag",
+        "e-pass-o4",
+        "e-o4-shot"
+      ],
+      "events": [
+        {
+          "id": "bcs-x5-switch",
+          "t": 2.3,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[1.6, 7.3], [2.8, 7.5], [3.9, 7.5]],
+          "speed": "slide",
+          "label": "X5 ambil handler"
+        },
+        {
+          "id": "bcs-x1-screener",
+          "t": 2.3,
+          "dur": 1.1,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[0.1, 7.7], [0.7, 8.8], [1.4, 9.5]],
+          "speed": "sprint",
+          "label": "X1 ambil screener"
+        },
+        {
+          "id": "bcs-o5-seal",
+          "t": 3,
+          "dur": 1.4,
+          "type": "cut",
+          "actor": "O5",
+          "path": [[1.1, 8.15], [1, 6], [0.9, 3.6], [0.8, 1.6]],
+          "speed": "jog",
+          "label": "Seal bek kecil"
+        },
+        {
+          "id": "bcs-pass",
+          "t": 4.4,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O5",
+          "label": "Entry ke mismatch"
+        },
+        {
+          "id": "bcs-shot",
+          "t": 5.1,
+          "dur": 1,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Finish atas bek kecil",
+          "made": true
+        }
+      ],
+      "trigger": { "coverage": "switch" },
+      "counter": { "id": "Switch di Horns langsung menciptakan mismatch ukuran di paint yang kosong." },
+      "outcome": "good-look"
+    },
+    {
+      "id": "b-mistake-both-roll",
+      "group": "mistake",
+      "label": { "id": "Salah: kedua big masuk paint" },
+      "fromT": 2.9,
+      "replaces": [
+        "e-o4-pop",
+        "e-x4-tag",
+        "e-pass-o4",
+        "e-o4-shot"
+      ],
+      "events": [
+        {
+          "id": "bmb-o4-dive",
+          "t": 2.9,
+          "dur": 1.3,
+          "type": "cut",
+          "actor": "O4",
+          "path": [[-2.45, 4.3], [-1.6, 3], [-0.9, 1.8]],
+          "speed": "jog",
+          "label": "4 ikut masuk paint",
+          "wrong": true
+        },
+        {
+          "id": "bmb-x4-stay",
+          "t": 3.2,
+          "dur": 1,
+          "type": "rotate",
+          "actor": "X4",
+          "path": [[-2.2, 3.3], [-1.8, 2.4], [-1.6, 1.6]],
+          "speed": "slide",
+          "label": "Satu bek menjaga dua big"
+        }
+      ],
+      "outcome": "turnover"
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "O1",
+      "mission": { "id": "Pilih sisi, pakai screen, lalu hukum bek yang meninggalkan big kedua." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": {
+            "id": "Dribble pelan di top. Jangan memilih sisi terlalu cepat — biarkan pertahanan menunggu."
+          }
+        },
+        { "phaseId": "p2", "text": { "id": "Pilih sisi kanan dan lewat rapat ke pinggul 5." } },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Serang dua langkah ke dalam agar X4 terpaksa memutuskan." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Lihat X4: ikut turun ke roller, atau tetap di 4?" }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Umpan ke tangan 4 — ia harus bisa langsung tembak." }
+        }
+      ],
+      "cues": [
+        { "id": "Apa yang dilakukan X5 setelah screen?" },
+        { "id": "Apakah X4 turun menahan roller dan meninggalkan 4?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X4 tag roller" },
+          "thenDo": { "id": "Umpan ke 4 di top" },
+          "branchId": "b-out-pop"
+        },
+        {
+          "ifCue": { "id": "X5 terlambat dan X4 tetap" },
+          "thenDo": { "id": "Lob ke roller" },
+          "branchId": "b-out-lob"
+        },
+        {
+          "ifCue": { "id": "Switch" },
+          "thenDo": { "id": "Entry pass ke mismatch di paint" },
+          "branchId": "b-cov-switch"
+        }
+      ],
+      "mistakes": [
+        { "id": "Memilih sisi terlalu cepat sehingga pertahanan siap lebih dulu." },
+        { "id": "Menyerang sebelum screen terpasang." },
+        { "id": "Mengambil pull-up padahal ada penembak bebas." }
+      ],
+      "calls": [
+        "Horns!",
+        "Kanan!",
+        "Pop!"
+      ]
+    },
+    {
+      "playerId": "O5",
+      "mission": { "id": "Pasang screen legal di sisi yang dipilih, lalu roll keras ke ring." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Tunggu di elbow kanan. Posisi kamu sendiri sudah menahan X5 di dalam." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Naik ke titik screen dengan sudut yang membuka arah drive 1." }
+        },
+        { "phaseId": "p3", "text": { "id": "Roll keras ke ring. Tangan siap jadi target." } },
+        { "phaseId": "p4", "text": { "id": "Bila di-switch, seal bek kecil dengan badan." } },
+        { "phaseId": "p5", "text": { "id": "Rebound menyerang bila bola tidak datang." } }
+      ],
+      "cues": [
+        { "id": "Posisi X5 setelah screen: drop, hedge, atau switch?" },
+        { "id": "Apakah bek sisi lemah turun menahan jalur roll?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Drop" },
+          "thenDo": { "id": "Roll keras; paksa X5 memilih antara kamu dan handler" }
+        },
+        {
+          "ifCue": { "id": "Switch" },
+          "thenDo": { "id": "Seal bek kecil di paint" },
+          "branchId": "b-cov-switch"
+        }
+      ],
+      "mistakes": [
+        { "id": "Moving screen saat kontak." },
+        { "id": "Roll sebelum handler melewati screen." },
+        { "id": "Berdiri di paint lebih dari 3 detik sebelum naik ke screen." }
+      ],
+      "calls": [
+        "Screen!",
+        "Roll!"
+      ]
+    },
+    {
+      "playerId": "O4",
+      "mission": { "id": "Tetap di elbow sebagai ancaman kedua, lalu pop ke top saat 5 roll." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Berdiri di elbow kiri. Keberadaanmu di sini menahan X4 jauh dari paint." }
+        },
+        {
+          "phaseId": "p2",
+          "text": {
+            "id": "Jangan bergerak saat 1 memilih sisi — nilai kamu adalah ancaman yang menunggu."
+          }
+        },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Tepat saat 5 mulai roll, pop ke top dengan kaki siap tembak." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Perhatikan X4: bila ia turun ke roller, kamu resmi bebas." }
+        },
+        { "phaseId": "p5", "text": { "id": "Tangkap-tembak tanpa langkah tambahan." } }
+      ],
+      "cues": [
+        { "id": "Apakah X4 turun menahan roller?" },
+        { "id": "Apakah 1 sudah punya sudut umpan ke top?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X4 tag roller" },
+          "thenDo": { "id": "Pop dan tangkap-tembak dari top" },
+          "branchId": "b-out-pop"
+        },
+        {
+          "ifCue": { "id": "X4 tetap menempel" },
+          "thenDo": { "id": "Tetap di elbow sebagai ventil, lalu DHO" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Ikut masuk paint bersama 5 — satu bek jadi bisa menjaga dua big." },
+        { "id": "Pop terlambat sehingga sudut umpan sudah tertutup." },
+        { "id": "Pop sambil melayang, bukan dengan kaki siap." }
+      ],
+      "calls": [
+        "Pop!",
+        "Top!"
+      ]
+    },
+    {
+      "playerId": "O2",
+      "mission": { "id": "Jaga sudut kanan sisi bola agar X2 tidak bisa membantu dengan murah." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Tetap di sudut kanan, kaki di luar garis." } },
+        { "phaseId": "p2", "text": { "id": "1 datang ke sisimu — jangan bergerak masuk." } },
+        { "phaseId": "p3", "text": { "id": "Perhatikan apakah X2 melihat ke dalam." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Bila X2 membantu, siapkan kaki untuk tangkap-tembak." }
+        },
+        { "phaseId": "p5", "text": { "id": "Siap kick-out bila drive terjadi." } }
+      ],
+      "cues": [
+        { "id": "Apakah kepala X2 berpaling ke bola?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "X2 membantu ke dalam" },
+          "thenDo": { "id": "Tetap di sudut, siap tangkap-tembak" }
+        },
+        { "ifCue": { "id": "X2 berpaling" }, "thenDo": { "id": "Cut baseline ke ring" } }
+      ],
+      "mistakes": [
+        { "id": "Melayang ke short corner dan menutup ruang roll." },
+        { "id": "Berdiri di dalam garis 3 poin." }
+      ],
+      "calls": [
+        "Corner!"
+      ]
+    },
+    {
+      "playerId": "O3",
+      "mission": { "id": "Jaga sudut kiri sisi lemah sebagai hukuman bagi setiap rotasi." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Tetap di sudut kiri, di luar garis." } },
+        { "phaseId": "p2", "text": { "id": "Lihat bola dengan kepala, bukan dengan kaki." } },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Perhatikan X3: apakah ia melangkah menahan roller?" }
+        },
+        { "phaseId": "p4", "text": { "id": "Bila X3 rotasi, kamu jadi opsi skip pass." } },
+        { "phaseId": "p5", "text": { "id": "Siap rebound sisi lemah." } }
+      ],
+      "cues": [
+        { "id": "Apakah X3 ikut rotasi ke dalam?" }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "X3 rotasi" }, "thenDo": { "id": "Siap menerima skip pass" } },
+        {
+          "ifCue": { "id": "X3 tetap" },
+          "thenDo": { "id": "Tetap lebar; ancamanmu menahan satu bek" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Melayang ke dalam sehingga X3 bisa menjaga dua orang." },
+        { "id": "Tidak siap kaki saat skip pass datang." }
+      ],
+      "calls": [
+        "Weak!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "Kedua big masuk ke paint" },
+      "why": {
+        "id": "Horns bekerja karena dua big bergerak ke arah BERLAWANAN. Bila keduanya masuk paint, satu bek cukup untuk menjaga keduanya dan paint jadi penuh."
+      },
+      "branchId": "b-mistake-both-roll"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "PG memilih sisi terlalu cepat" },
+      "why": {
+        "id": "Nilai Horns ada pada ketidakpastian. Memilih sisi sejak awal memberi pertahanan waktu untuk bersiap."
+      }
+    },
+    {
+      "id": "m3",
+      "title": { "id": "Big yang pop berhenti di dalam garis 3 poin" },
+      "why": {
+        "id": "Pop ke dalam garis mengubah tembakan 3 poin terbuka menjadi tembakan 2 poin jarak menengah."
+      }
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Screen dipasang tanpa sudut" },
+      "why": {
+        "id": "Screen harus menghadap arah yang ingin dituju handler. Screen tanpa sudut hanya memperlambat kedua pemain."
+      }
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "Switch pada ball screen." },
+      "response": { "id": "Mismatch langsung muncul di paint yang kosong — seal dan entry pass." },
+      "branchId": "b-cov-switch"
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Kedua bek big tetap di dalam dan tidak mengikuti pop." },
+      "response": { "id": "Big yang pop bebas menembak 3 poin dari top setiap possession." },
+      "branchId": "b-out-pop"
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "Blitz pada handler segera setelah screen." },
+      "response": {
+        "id": "Umpan ke big yang pop; ia jadi pengumpan dengan keunggulan jumlah di belakang trap."
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": { "id": "X4 turun menahan roller. Ke mana bola harus pergi?" },
+      "pauseAt": 4.2,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": { "id": "X5 dan X1 melakukan switch. Siapa yang punya keunggulan sekarang?" },
+      "pauseAt": 4,
+      "setupBranches": [
+        "b-cov-switch"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "Kedua big masuk paint bersamaan. Apa akibatnya?" },
+      "pauseAt": 4.2,
+      "setupBranches": [
+        "b-mistake-both-roll"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [
+      "off-spread-pnr"
+    ],
+    "nextUp": [
+      "set-spain-pnr"
+    ]
+  },
+  "terms": [
+    "horns",
+    "elbow",
+    "pick-and-roll",
+    "pick-and-pop",
+    "switch",
+    "mismatch",
+    "tag",
+    "kick-out",
+    "corner",
+    "top-of-key"
+  ],
+  "origin": {
+    "id": "Nama Horns berasal dari bentuk formasinya di papan taktik — dua big di elbow terlihat seperti sepasang tanduk."
+  }
+}

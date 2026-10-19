@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "$comment": "Konten dan komentar kode proyek ini berbahasa Indonesia. Kamus cSpell bawaan menandai hampir setiap kata, sehingga peringatan nyata tenggelam. Pemeriksaan ejaan dimatikan di repo ini; kualitas teks dijaga lewat tinjauan penulis konten (PRD §18 R3).",
+  "enabled": false,
+  "language": "en",
+  "ignorePaths": ["**"]
+}

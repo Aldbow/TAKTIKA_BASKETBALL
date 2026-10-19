@@ -1,0 +1,715 @@
+{
+  "id": "zone-vs-2-3",
+  "slug": "melawan-zona-2-3",
+  "title": { "id": "Melawan Zona 2-3", "en": "Attacking the 2-3 Zone" },
+  "category": "vs-zone",
+  "level": 3,
+  "court": "half",
+  "duration": 6.8,
+  "release": "mvp",
+  "status": "published",
+  "version": 1,
+  "summary": {
+    "id": "Berdiri di celah antarbek zona, flash ke high post untuk menarik dua bek sekaligus, lalu skip pass sudut ke sudut sebelum zona bisa bergeser."
+  },
+  "whenToUse": {
+    "id": "Saat lawan memakai zona 2-3 dan mencoba memaksa tembakan dari luar tanpa pergeseran."
+  },
+  "players": [
+    {
+      "id": "O1",
+      "team": "offense",
+      "role": "PG",
+      "start": { "x": 1.6, "y": 8, "facing": 0 },
+      "hasBall": true
+    },
+    {
+      "id": "O2",
+      "team": "offense",
+      "role": "SG",
+      "start": { "x": 5.6, "y": 5.2, "facing": 0 }
+    },
+    {
+      "id": "O3",
+      "team": "offense",
+      "role": "SF",
+      "start": { "x": 6.6, "y": 0.6, "facing": 0 }
+    },
+    {
+      "id": "O4",
+      "team": "offense",
+      "role": "PF",
+      "start": { "x": 0, "y": 4.6, "facing": 180 }
+    },
+    { "id": "O5", "team": "offense", "role": "C", "start": { "x": -5.8, "y": 1, "facing": 0 } },
+    { "id": "X1", "team": "defense", "start": { "x": -1.7, "y": 6.4, "facing": 180 } },
+    { "id": "X2", "team": "defense", "start": { "x": 1.7, "y": 6.4, "facing": 180 } },
+    { "id": "X3", "team": "defense", "start": { "x": -4, "y": 1.7, "facing": 180 } },
+    { "id": "X4", "team": "defense", "start": { "x": 4, "y": 1.7, "facing": 180 } },
+    { "id": "X5", "team": "defense", "start": { "x": 0, "y": 2, "facing": 180 } }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "title": { "id": "Overload sisi bola" },
+      "tStart": 0,
+      "tEnd": 1.6,
+      "narration": {
+        "id": "Tiga penyerang di sisi kanan membebani separuh zona. 1 dribble ke wing untuk menarik guard zona keluar."
+      },
+      "focus": [
+        "O1",
+        "X2"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": { "id": "Flash high post" },
+      "tStart": 1.6,
+      "tEnd": 3,
+      "narration": {
+        "id": "4 flash ke celah di high post. Berdiri di antara dua bek zona memaksa keduanya bereaksi."
+      },
+      "focus": [
+        "O4",
+        "X1",
+        "X5"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": { "id": "Zona runtuh" },
+      "tStart": 3,
+      "tEnd": 4,
+      "narration": {
+        "id": "Umpan ke high post membuat guard dan center sama-sama bergerak ke dalam. Sisi lemah kini kosong."
+      },
+      "focus": [
+        "O4",
+        "X5",
+        "X1"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": { "id": "Skip pass" },
+      "tStart": 4,
+      "tEnd": 5.2,
+      "narration": {
+        "id": "Skip pass langsung dari high post ke sudut sisi lemah — melewati seluruh pergeseran zona."
+      },
+      "focus": [
+        "O5",
+        "X3"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": { "id": "Hasil" },
+      "tStart": 5.2,
+      "tEnd": 6.8,
+      "narration": { "id": "Closeout X3 harus menempuh hampir empat meter. Tembakan sudut terbuka." },
+      "focus": [
+        "O5"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-o1-dribble",
+      "t": 0,
+      "dur": 1.5,
+      "type": "dribble",
+      "actor": "O1",
+      "path": [[1.6, 8], [3.2, 7.2], [4.5, 6.1]],
+      "speed": "jog",
+      "label": "Tarik guard zona keluar"
+    },
+    {
+      "id": "e-x2-shift",
+      "t": 0.2,
+      "dur": 1.5,
+      "type": "rotate",
+      "actor": "X2",
+      "path": [[1.7, 6.4], [2.7, 5.9], [3.6, 5.2]],
+      "speed": "slide",
+      "label": "Geser ke bola"
+    },
+    {
+      "id": "e-o4-flash",
+      "t": 1.6,
+      "dur": 1,
+      "type": "cut",
+      "actor": "O4",
+      "path": [[0, 4.6], [0.9, 4.9], [1.9, 5]],
+      "speed": "jog",
+      "label": "Flash ke celah"
+    },
+    {
+      "id": "e-pass-post",
+      "t": 2.7,
+      "dur": 0.4,
+      "type": "pass",
+      "actor": "O1",
+      "target": "O4",
+      "label": "Umpan ke high post"
+    },
+    {
+      "id": "e-x1-collapse",
+      "t": 3,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X1",
+      "path": [[-1.7, 6.4], [-0.3, 6], [0.9, 5.7]],
+      "speed": "sprint",
+      "label": "Guard runtuh ke dalam"
+    },
+    {
+      "id": "e-x5-up",
+      "t": 3,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X5",
+      "path": [[0, 2], [0.9, 3], [1.7, 3.8]],
+      "speed": "sprint",
+      "label": "Center naik"
+    },
+    {
+      "id": "e-skip",
+      "t": 4,
+      "dur": 0.7,
+      "type": "pass",
+      "actor": "O4",
+      "target": "O5",
+      "label": "Skip pass sudut ke sudut"
+    },
+    {
+      "id": "e-x3-closeout",
+      "t": 4.4,
+      "dur": 1,
+      "type": "rotate",
+      "actor": "X3",
+      "path": [[-4, 1.7], [-4.7, 1.4], [-5.2, 1.3]],
+      "speed": "sprint",
+      "label": "Closeout terlambat"
+    },
+    {
+      "id": "e-o5-shot",
+      "t": 5.3,
+      "dur": 1.1,
+      "type": "shot",
+      "actor": "O5",
+      "target": "rim",
+      "label": "Corner 3",
+      "made": true
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "t": 4.6,
+      "owner": "O5",
+      "cue": {
+        "id": "Closeout X3 datang dari jarak hampir empat meter. Berapa lama ia butuh untuk sampai?"
+      },
+      "options": [
+        {
+          "id": "o-shoot",
+          "label": { "id": "Tangkap-tembak dari sudut" },
+          "correct": true,
+          "explain": {
+            "id": "Closeout dari block ke sudut butuh waktu lebih dari satu detik. Dengan kaki yang sudah siap, tembakan ini terbuka — dan sudut adalah 3 poin terdekat (6,60 m)."
+          },
+          "branchId": "b-out-shoot",
+          "correctWhen": "Closeout masih lebih dari satu langkah jauhnya",
+          "targetPlayer": "O5"
+        },
+        {
+          "id": "o-drive",
+          "label": { "id": "Drive baseline" },
+          "correct": false,
+          "explain": {
+            "id": "Drive baru benar setelah closeout tiba dengan badan tinggi. Melakukannya sekarang berarti menyerang zona yang sudah kembali berkumpul di paint."
+          },
+          "branchId": "b-out-drive",
+          "correctWhen": "X3 sudah tiba dan melompat"
+        },
+        {
+          "id": "o-back",
+          "label": { "id": "Umpan balik ke 4 di high post" },
+          "correct": false,
+          "explain": {
+            "id": "Umpan balik memberi zona waktu untuk bergeser lagi. Keunggulan dari skip pass hilang dalam satu detik."
+          },
+          "targetPlayer": "O4"
+        },
+        {
+          "id": "o-swing",
+          "label": { "id": "Umpan ke 3 di sudut kanan" },
+          "correct": false,
+          "explain": {
+            "id": "Umpan melintasi lapangan dari sudut ke sudut lewat depan zona yang sudah berkumpul — jenis umpan yang paling sering dipotong."
+          },
+          "targetPlayer": "O3"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "b-out-shoot",
+      "group": "outcome",
+      "label": { "id": "Tangkap-tembak sudut" },
+      "fromT": 4.8,
+      "replaces": [],
+      "events": [
+        {
+          "id": "bos-shot",
+          "t": 5.3,
+          "dur": 1.1,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Corner 3",
+          "made": true
+        }
+      ],
+      "counter": {
+        "id": "Zona harus memilih: runtuh ke high post dan memberi sudut, atau menjaga sudut dan memberi high post."
+      },
+      "outcome": "score"
+    },
+    {
+      "id": "b-out-drive",
+      "group": "outcome",
+      "label": { "id": "Drive baseline" },
+      "fromT": 4.8,
+      "replaces": [
+        "e-o5-shot"
+      ],
+      "events": [
+        {
+          "id": "bod-drive",
+          "t": 5,
+          "dur": 1,
+          "type": "dribble",
+          "actor": "O5",
+          "path": [[-5.8, 1], [-4, 0.5], [-2.2, 0.4]],
+          "speed": "sprint",
+          "label": "Drive baseline"
+        },
+        {
+          "id": "bod-shot",
+          "t": 6.1,
+          "dur": 0.7,
+          "type": "shot",
+          "actor": "O5",
+          "target": "rim",
+          "label": "Di-contest di paint",
+          "made": false
+        }
+      ],
+      "outcome": "contested"
+    },
+    {
+      "id": "b-mistake-no-gap",
+      "group": "mistake",
+      "label": { "id": "Salah: berdiri di depan bek, bukan di celah" },
+      "fromT": 1.6,
+      "replaces": [
+        "e-o4-flash",
+        "e-pass-post",
+        "e-x1-collapse",
+        "e-x5-up",
+        "e-skip",
+        "e-x3-closeout",
+        "e-o5-shot"
+      ],
+      "events": [
+        {
+          "id": "bmg-o4-wrong",
+          "t": 1.6,
+          "dur": 1,
+          "type": "cut",
+          "actor": "O4",
+          "path": [[0, 4.6], [0.2, 3.6], [0.3, 2.8]],
+          "speed": "jog",
+          "label": "Masuk ke area yang sudah dijaga",
+          "wrong": true
+        },
+        {
+          "id": "bmg-x5-easy",
+          "t": 2.3,
+          "dur": 0.8,
+          "type": "rotate",
+          "actor": "X5",
+          "path": [[0, 2], [0.2, 2.3], [0.4, 2.2]],
+          "speed": "slide",
+          "label": "Satu bek cukup — tidak ada yang tertarik"
+        }
+      ],
+      "outcome": "reset"
+    },
+    {
+      "id": "b-mistake-slow-swing",
+      "group": "mistake",
+      "label": { "id": "Salah: bola diputar pelan, bukan di-skip" },
+      "fromT": 4,
+      "replaces": [
+        "e-skip",
+        "e-x3-closeout",
+        "e-o5-shot"
+      ],
+      "events": [
+        {
+          "id": "bms-swing1",
+          "t": 4,
+          "dur": 0.5,
+          "type": "pass",
+          "actor": "O4",
+          "target": "O1",
+          "label": "Umpan pelan ke wing",
+          "wrong": true
+        },
+        {
+          "id": "bms-x1-recover",
+          "t": 4.4,
+          "dur": 0.9,
+          "type": "rotate",
+          "actor": "X1",
+          "path": [[0.9, 5.7], [-0.6, 6], [-1.8, 6.3]],
+          "speed": "sprint",
+          "label": "Zona punya waktu pulih"
+        },
+        {
+          "id": "bms-swing2",
+          "t": 5,
+          "dur": 0.6,
+          "type": "pass",
+          "actor": "O1",
+          "target": "O5",
+          "label": "Terlambat satu umpan",
+          "wrong": true
+        }
+      ],
+      "outcome": "reset"
+    }
+  ],
+  "povLenses": [
+    {
+      "playerId": "O1",
+      "mission": { "id": "Tarik guard zona keluar, lalu kirim bola ke celah high post." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Dribble ke wing. Semakin jauh guard zona ditarik, semakin besar celahnya." }
+        },
+        { "phaseId": "p2", "text": { "id": "Lihat 4 masuk ke celah di antara dua bek zona." } },
+        {
+          "phaseId": "p3",
+          "text": { "id": "Umpan ke high post — ini umpan yang meruntuhkan zona." }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Setelah mengumpan, tetap jadi opsi kembali; jangan ikut masuk." }
+        },
+        { "phaseId": "p5", "text": { "id": "Siap rebound sisi bola bila tembakan gagal." } }
+      ],
+      "cues": [
+        { "id": "Apakah guard zona ikut keluar mengikuti dribble?" },
+        { "id": "Apakah ada celah antara guard dan forward zona?" }
+      ],
+      "decisions": [
+        { "ifCue": { "id": "Guard zona keluar" }, "thenDo": { "id": "Umpan ke high post" } },
+        {
+          "ifCue": { "id": "Guard zona tetap di dalam" },
+          "thenDo": { "id": "Tembak dari wing — zona memberi ruang itu" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Mengumpan di depan zona, bukan ke celahnya." },
+        { "id": "Dribble terlalu dalam sehingga dua bek bisa menjebak." },
+        { "id": "Memutar bola pelan dari satu sisi ke sisi lain; zona selalu lebih cepat." }
+      ],
+      "calls": [
+        "Gap!",
+        "Post!"
+      ]
+    },
+    {
+      "playerId": "O4",
+      "mission": { "id": "Berdiri di celah high post, tarik dua bek, lalu skip pass ke sisi lemah." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Mulai di tengah. Posisi kamu menahan center zona tetap di paint." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Flash ke celah — berdiri di antara dua bek, bukan di depan satu bek." }
+        },
+        {
+          "phaseId": "p3",
+          "text": {
+            "id": "Terima bola menghadap ring. Satu putaran kepala cukup untuk melihat sisi lemah."
+          }
+        },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Skip pass langsung ke sudut sisi lemah. Jangan diputar pelan." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Setelah mengumpan, masuk rebound; zona biasanya lupa box out." }
+        }
+      ],
+      "cues": [
+        { "id": "Berapa bek yang bergerak ke arahmu saat menerima bola?" },
+        { "id": "Sudut mana yang paling jauh dari pergeseran zona?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Dua bek runtuh ke kamu" },
+          "thenDo": { "id": "Skip pass ke sudut sisi lemah" },
+          "branchId": "b-out-shoot"
+        },
+        {
+          "ifCue": { "id": "Tidak ada yang bergerak" },
+          "thenDo": { "id": "Putar badan dan tembak dari high post" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Berdiri di area yang sudah dijaga satu bek — tidak ada yang tertarik." },
+        { "id": "Menerima bola dengan punggung ke ring sehingga tidak bisa membaca." },
+        { "id": "Memutar bola pelan, memberi zona waktu bergeser." }
+      ],
+      "calls": [
+        "Gap!",
+        "Skip!"
+      ]
+    },
+    {
+      "playerId": "O5",
+      "mission": { "id": "Jadi penembak sudut sisi lemah — hukuman bagi zona yang runtuh ke tengah." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Tetap di sudut kiri, di luar garis. Jangan ikut ke sisi bola." }
+        },
+        { "phaseId": "p2", "text": { "id": "Lihat bola. Saat 4 masuk ke celah, bersiap." } },
+        { "phaseId": "p3", "text": { "id": "Kaki siap tembak SEBELUM bola datang." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Skip pass datang cepat dan jauh — tangan jadi target." }
+        },
+        {
+          "phaseId": "p5",
+          "text": { "id": "Tembak tanpa langkah tambahan. Closeout butuh lebih dari satu detik." }
+        }
+      ],
+      "cues": [
+        { "id": "Seberapa jauh bek terdekat dari kamu?" },
+        { "id": "Apakah forward zona sisi lemah ikut runtuh ke paint?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Closeout masih jauh" },
+          "thenDo": { "id": "Tangkap-tembak" },
+          "branchId": "b-out-shoot"
+        },
+        {
+          "ifCue": { "id": "Closeout tiba dengan badan tinggi" },
+          "thenDo": { "id": "Drive baseline" },
+          "branchId": "b-out-drive"
+        }
+      ],
+      "mistakes": [
+        { "id": "Bergerak ke sisi bola dan merusak overload." },
+        { "id": "Kaki belum siap saat skip pass datang." },
+        { "id": "Menembak setelah closeout sudah tiba." }
+      ],
+      "calls": [
+        "Weak!",
+        "Skip!",
+        "Shot!"
+      ]
+    },
+    {
+      "playerId": "O2",
+      "mission": { "id": "Bebani sisi bola di wing agar zona harus memakai dua bek di satu sisi." },
+      "steps": [
+        {
+          "phaseId": "p1",
+          "text": { "id": "Tetap di wing kanan. Kamu bagian dari overload tiga pemain." }
+        },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Jaga jarak dari 1 — dua penyerang di satu area membuat satu bek cukup." }
+        },
+        { "phaseId": "p3", "text": { "id": "Perhatikan apakah bek zona memilih kamu atau 1." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Bila zona bergeser ke sudut, kamu jadi opsi kembali." }
+        },
+        { "phaseId": "p5", "text": { "id": "Rebound sisi bola." } }
+      ],
+      "cues": [
+        { "id": "Apakah satu bek zona mencoba menjaga kamu dan 1 sekaligus?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Satu bek menjaga dua" },
+          "thenDo": { "id": "Terima umpan dan tembak" }
+        },
+        {
+          "ifCue": { "id": "Zona bergeser ke kamu" },
+          "thenDo": { "id": "Umpan cepat ke high post" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Berdiri terlalu dekat dengan 1 sehingga overload tidak berarti." },
+        { "id": "Masuk ke dalam garis 3 poin." }
+      ],
+      "calls": [
+        "Wing!"
+      ]
+    },
+    {
+      "playerId": "O3",
+      "mission": { "id": "Jaga sudut sisi bola sebagai titik ketiga overload." },
+      "steps": [
+        { "phaseId": "p1", "text": { "id": "Tetap di sudut kanan, di luar garis." } },
+        {
+          "phaseId": "p2",
+          "text": { "id": "Forward zona harus memilih antara kamu dan paint." }
+        },
+        { "phaseId": "p3", "text": { "id": "Perhatikan apakah forward zona naik ke kamu." } },
+        {
+          "phaseId": "p4",
+          "text": { "id": "Bila forward naik, short corner terbuka untuk rekan." }
+        },
+        { "phaseId": "p5", "text": { "id": "Siap rebound sudut." } }
+      ],
+      "cues": [
+        { "id": "Apakah forward zona naik keluar ke kamu?" }
+      ],
+      "decisions": [
+        {
+          "ifCue": { "id": "Forward naik ke kamu" },
+          "thenDo": { "id": "Umpan ke short corner di belakangnya" }
+        },
+        {
+          "ifCue": { "id": "Forward tetap di block" },
+          "thenDo": { "id": "Terima umpan dan tembak sudut" }
+        }
+      ],
+      "mistakes": [
+        { "id": "Melayang ke short corner sehingga overload kehilangan lebar." },
+        { "id": "Tidak siap kaki saat umpan sudut datang." }
+      ],
+      "calls": [
+        "Corner!"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m1",
+      "title": { "id": "Berdiri di depan bek zona, bukan di celahnya" },
+      "why": {
+        "id": "Zona menjaga area. Berdiri di dalam satu area berarti satu bek cukup. Berdiri di CELAH antara dua area memaksa keduanya bereaksi."
+      },
+      "branchId": "b-mistake-no-gap"
+    },
+    {
+      "id": "m2",
+      "title": { "id": "Bola diputar pelan dari sisi ke sisi" },
+      "why": {
+        "id": "Zona bergeser lebih cepat daripada bola yang diputar satu-satu. Skip pass yang melewati satu pemain adalah satu-satunya cara mendahului pergeseran."
+      },
+      "branchId": "b-mistake-slow-swing"
+    },
+    {
+      "id": "m3",
+      "title": { "id": "Semua penyerang di luar garis" },
+      "why": {
+        "id": "Zona 2-3 justru nyaman bila tidak ada yang mengancam dari dalam. High post dan short corner harus selalu terisi."
+      }
+    },
+    {
+      "id": "m4",
+      "title": { "id": "Tidak ada yang box out saat tembakan" },
+      "why": {
+        "id": "Zona sering kehilangan tanggung jawab rebound. Penyerang yang masuk rebound mendapat peluang kedua hampir gratis."
+      }
+    }
+  ],
+  "counters": [
+    {
+      "id": "c1",
+      "defense": { "id": "Center zona tidak naik ke high post dan tetap melindungi ring." },
+      "response": { "id": "High post bebas menembak dari garis lemparan bebas setiap possession." }
+    },
+    {
+      "id": "c2",
+      "defense": { "id": "Forward zona menolak skip pass dengan bersiap lebih dulu di sudut." },
+      "response": { "id": "Paint jadi kosong — flash ke short corner atau drive dari high post." }
+    },
+    {
+      "id": "c3",
+      "defense": { "id": "Zona berubah menjadi matchup setelah bola masuk ke high post." },
+      "response": { "id": "Perlakukan seperti man-to-man: cari mismatch dan jalankan pick-and-roll." }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "prompt": { "id": "Dua bek zona runtuh ke high post. Ke mana bola harus pergi?" },
+      "pauseAt": 4.6,
+      "setupBranches": [],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s2",
+      "prompt": { "id": "Closeout X3 sudah tiba dengan badan tinggi. Pilihan terbaik?" },
+      "pauseAt": 4.6,
+      "setupBranches": [
+        "b-out-drive"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    },
+    {
+      "id": "s3",
+      "prompt": { "id": "4 berdiri di depan center zona, bukan di celah. Apa akibatnya?" },
+      "pauseAt": 4.6,
+      "setupBranches": [
+        "b-mistake-no-gap"
+      ],
+      "answerType": "tap-player",
+      "decisionId": "d1"
+    }
+  ],
+  "related": {
+    "prerequisites": [
+      "off-5-out-motion"
+    ],
+    "nextUp": [
+      "def-zone-2-3"
+    ]
+  },
+  "terms": [
+    "spacing",
+    "high-post",
+    "skip-pass",
+    "corner",
+    "short-corner",
+    "closeout",
+    "help-side",
+    "box-out"
+  ],
+  "origin": {
+    "id": "Prinsip menyerang zona dari celah sudah lama jadi standar pengajaran: zona menjaga area, jadi berdiri di antara dua area memaksa keduanya bereaksi."
+  }
+}
