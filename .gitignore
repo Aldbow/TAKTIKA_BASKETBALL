@@ -7,3 +7,7 @@ coverage/
 next-env.d.ts
 .env*.local
 .DS_Store
+
+# Cache Python dari skrip generator konten
+__pycache__/
+*.pyc
