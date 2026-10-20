@@ -78,6 +78,7 @@ export function TacticViewer({
   const markPovSeen = useProgress((s) => s.markPovSeen)
   const markBranchSeen = useProgress((s) => s.markBranchSeen)
   const toggleCollection = useProgress((s) => s.toggleCollection)
+  const setLastVisited = useProgress((s) => s.setLastVisited)
   const inCollection = useProgress((s) =>
     s.collection.some((c) => c.id === tactic.id && c.kind === 'tactic'),
   )
@@ -108,6 +109,16 @@ export function TacticViewer({
     initialised.current = true
 
     viewer.openTactic(tactic.id, initialPhase !== null || initialPov ? 'link' : 'library')
+    // Kartu "Lanjutkan" di dashboard (PRD §12 Alur 5). Mode sematan bukan
+    // kunjungan taktik, jadi tidak dicatat.
+    if (!embedded) {
+      setLastVisited({
+        kind: 'tactic',
+        id: tactic.id,
+        title: localize(tactic.title),
+        href: `/taktik/${tactic.slug}`,
+      })
+    }
     if (initialPhase !== null) player.jumpToPhase(initialPhase)
     if (initialPov) {
       viewer.selectPov(initialPov, tactic)

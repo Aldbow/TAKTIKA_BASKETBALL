@@ -86,6 +86,7 @@ const config: Config = {
           '75%': { transform: 'translateX(6px)' },
         },
         'count-flash': { '0%': { transform: 'scale(1)' }, '40%': { transform: 'scale(1.25)' }, '100%': { transform: 'scale(1)' } },
+        'spin-once': { from: { transform: 'rotateY(0deg)' }, to: { transform: 'rotateY(360deg)' } },
       },
       animation: {
         // PRD §9: halo pemain terpilih berdenyut 1,6 detik
@@ -95,6 +96,8 @@ const config: Config = {
         'slide-label': 'slide-label 300ms cubic-bezier(0.16, 1, 0.3, 1) both',
         'shake-x': 'shake-x 300ms ease-in-out 2',
         'count-flash': 'count-flash 600ms cubic-bezier(0.16, 1, 0.3, 1)',
+        // PRD §10 A-18: "lencana berputar 360° sekali"
+        'spin-once': 'spin-once 900ms cubic-bezier(0.16, 1, 0.3, 1) 1',
       },
     },
   },

@@ -4,6 +4,7 @@ import { JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/goog
 import '@/styles/globals.css'
 import { AppShell } from '@/components/nav/AppShell'
 import { SettingsEffects } from '@/components/nav/SettingsEffects'
+import { BadgeWatcher } from '@/components/nav/BadgeWatcher'
 
 /**
  * Tipografi PRD §9:
@@ -65,7 +66,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    // suppressHydrationWarning hanya berlaku untuk atribut <html> itu sendiri:
+    // SettingsEffects menyetel data-theme/data-contrast di sini, dan ekstensi
+    // browser kerap menyisipkan atribut (mis. cvd="1") sebelum React hidrasi.
+    <html
+      lang="id"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {/* Lompat ke konten — syarat navigasi keyboard saja (PRD §15). */}
         <a
@@ -76,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <SettingsEffects />
         <AppShell>{children}</AppShell>
+        <BadgeWatcher />
       </body>
     </html>
   )

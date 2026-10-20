@@ -78,6 +78,9 @@ export interface ProgressState {
   lessonsBeforeAccount: number
   dismissedSignupPrompt: boolean
 
+  /** Titik terakhir yang dibuka — kartu "Lanjutkan" di dashboard (PRD §12 Alur 5) */
+  lastVisited: LastVisited | null
+
   /* ---- aksi ---- */
   completeOnboarding: (answers: OnboardingAnswers) => void
   startLesson: (lessonId: string, level: number) => void
@@ -90,8 +93,19 @@ export interface ProgressState {
   recordScenario: (scenarioId: string, correct: boolean, cue?: string) => void
   toggleCollection: (id: string, kind: 'tactic' | 'lesson' | 'term') => void
   dismissSignupPrompt: () => void
+  setLastVisited: (item: Omit<LastVisited, 'at'>) => void
+  /** Catat lencana yang baru didapat (F-25); id yang sudah ada diabaikan. */
+  awardBadges: (ids: string[]) => void
   touchStreak: () => void
   resetAll: () => void
+}
+
+export interface LastVisited {
+  kind: 'lesson' | 'tactic'
+  id: string
+  title: string
+  href: string
+  at: string
 }
 
 const EMPTY = {
@@ -112,6 +126,7 @@ const EMPTY = {
   lastActiveDay: null,
   lessonsBeforeAccount: 0,
   dismissedSignupPrompt: false,
+  lastVisited: null,
 }
 
 /** Tambahkan nilai unik ke array tanpa menduplikasi. */
@@ -246,6 +261,14 @@ export const useProgress = create<ProgressState>()(
       },
 
       dismissSignupPrompt: () => set({ dismissedSignupPrompt: true }),
+
+      setLastVisited: (item) => set({ lastVisited: { ...item, at: new Date().toISOString() } }),
+
+      awardBadges: (ids) => {
+        const fresh = ids.filter((id) => !get().badges.includes(id))
+        if (fresh.length === 0) return
+        set((s) => ({ badges: [...s.badges, ...fresh] }))
+      },
 
       touchStreak: () => {
         const today = dayKey()

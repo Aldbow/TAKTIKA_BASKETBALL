@@ -14,9 +14,10 @@
  * semuanya beranimasi akan menghabiskan anggaran frame halaman perpustakaan.
  */
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
 import { MasterClock, getStateContext, type Tactic } from '@/engine'
+import { useIsClient } from '@/lib/hydration'
 import { CourtCanvas } from '@/renderer2d/CourtCanvas'
 import { DEFAULT_LAYERS } from '@/renderer2d/types'
 import { effectiveQuality, effectiveReducedMotion, useSettings } from '@/stores/settingsStore'
@@ -67,8 +68,7 @@ export function TacticThumbnail({ tactic, active, className }: TacticThumbnailPr
     [],
   )
 
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
+  const mounted = useIsClient()
 
   const ref = useRef<HTMLDivElement | null>(null)
 

@@ -150,27 +150,31 @@ export function CourtCanvas({
     onFps,
     onTransform,
   })
-  propsRef.current = {
-    ctx,
-    clock,
-    fixedT,
-    layers,
-    pov,
-    camera,
-    renderQ,
-    skipBootUp,
-    frozen,
-    quizTargets,
-    branchBlend,
-    ghostPaths,
-    focusPlayers,
-    highlightedZones,
-    laser,
-    annotations,
-    bus,
-    onFps,
-    onTransform,
-  }
+  // Diperbarui setelah commit (sebelum frame berikutnya digambar), bukan saat
+  // render — render bisa dijalankan React tanpa pernah di-commit.
+  useLayoutEffect(() => {
+    propsRef.current = {
+      ctx,
+      clock,
+      fixedT,
+      layers,
+      pov,
+      camera,
+      renderQ,
+      skipBootUp,
+      frozen,
+      quizTargets,
+      branchBlend,
+      ghostPaths,
+      focusPlayers,
+      highlightedZones,
+      laser,
+      annotations,
+      bus,
+      onFps,
+      onTransform,
+    }
+  })
 
   /* ---------------------------------------------------------------------- */
   /* Ukuran & devicePixelRatio                                              */
@@ -378,7 +382,10 @@ export function CourtCanvas({
   }, [onCourtPointerMove])
 
   return (
-    <div ref={wrapRef} className={className} style={{ position: 'relative', minHeight: 0 }}>
+    // Tanpa `position` inline: pemanggil memosisikan wrapper lewat className
+    // (mis. "absolute inset-0"). Inline `position: relative` dulu menimpa kelas
+    // itu, sehingga tinggi wrapper jatuh ke tinggi bawaan canvas (150 px).
+    <div ref={wrapRef} className={className} style={{ minHeight: 0 }}>
       <canvas
         ref={canvasRef}
         onClick={handleClick}

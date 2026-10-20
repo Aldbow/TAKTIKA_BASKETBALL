@@ -1,10 +1,12 @@
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { FlatCompat } from '@eslint/eslintrc'
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import nextTs from 'eslint-config-next/typescript'
 
-const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta.url)) })
-
-export default [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  { ignores: ['.next/**', 'node_modules/**', 'coverage/**'] },
+// eslint-config-next 16 sudah berformat flat config, jadi diimpor langsung —
+// membungkusnya dengan FlatCompat membuat ESLint gagal ("circular structure").
+const config = [
+  ...nextVitals,
+  ...nextTs,
+  { ignores: ['.next/**', 'out/**', 'build/**', 'coverage/**', 'next-env.d.ts'] },
 ]
+
+export default config

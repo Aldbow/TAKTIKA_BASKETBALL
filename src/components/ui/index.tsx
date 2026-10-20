@@ -11,6 +11,7 @@
  *   Ikon           : garis 1,5 px, sudut membulat, satu set konsisten
  */
 
+import Link from 'next/link'
 import {
   forwardRef,
   useCallback,
@@ -127,6 +128,159 @@ export const PillButton = forwardRef<HTMLButtonElement, PillButtonProps>(functio
 })
 
 /* -------------------------------------------------------------------------- */
+/* Tautan berbentuk tombol pil                                                */
+/* -------------------------------------------------------------------------- */
+
+const LINK_VARIANTS: Record<'primary' | 'outline' | 'ghost', string> = {
+  primary:
+    'font-semibold text-[var(--text-inverse)] [background:linear-gradient(135deg,var(--team-offense),color-mix(in_srgb,var(--team-offense)_55%,var(--ball)))] hover:shadow-[0_0_24px_color-mix(in_srgb,var(--team-offense)_55%,transparent)]',
+  outline:
+    'border border-[var(--glass-border)] bg-[var(--bg-glass)] text-[var(--text-primary)] backdrop-blur hover:border-[color-mix(in_srgb,var(--team-offense)_55%,transparent)]',
+  ghost:
+    'text-[var(--text-secondary)] hover:bg-[color-mix(in_srgb,var(--text-primary)_8%,transparent)] hover:text-[var(--text-primary)]',
+}
+
+export function LinkButton({
+  href,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  className,
+  children,
+}: {
+  href: string
+  variant?: 'primary' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
+  icon?: ReactNode
+  className?: string
+  children: ReactNode
+}) {
+  const sizes = { sm: 'h-9 px-3 text-sm gap-1.5', md: 'h-11 px-4 text-sm gap-2', lg: 'h-12 px-6 text-base gap-2' }
+  return (
+    <Link
+      href={href}
+      className={cx(
+        'inline-flex touch-target items-center justify-center rounded-full transition-[box-shadow,border-color,color,background] duration-fast ease-emphasis',
+        sizes[size],
+        LINK_VARIANTS[variant],
+        className,
+      )}
+    >
+      {icon}
+      {children}
+    </Link>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* Batang progres                                                             */
+/* -------------------------------------------------------------------------- */
+
+export function ProgressBar({
+  value,
+  max,
+  color = 'var(--team-offense)',
+  label,
+  className,
+}: {
+  value: number
+  max: number
+  color?: string
+  /** Label pembaca layar, mis. "3 dari 9 pelajaran selesai" */
+  label: string
+  className?: string
+}) {
+  const pct = max <= 0 ? 0 : Math.max(0, Math.min(100, (value / max) * 100))
+  return (
+    <div
+      role="progressbar"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuemax={max}
+      aria-valuenow={value}
+      className={cx(
+        'h-1.5 w-full overflow-hidden rounded-full bg-[color-mix(in_srgb,var(--text-primary)_10%,transparent)]',
+        className,
+      )}
+    >
+      <div
+        className="h-full rounded-full transition-[width] duration-slow ease-emphasis"
+        style={{ width: `${pct}%`, background: color, boxShadow: `0 0 8px ${color}` }}
+      />
+    </div>
+  )
+}
+
+/** Teks dengan `*istilah*` ditampilkan miring — konvensi istilah asing PRD §4. */
+export function RichText({ text }: { text: string }) {
+  const parts = text.split(/(\*[^*]+\*)/g)
+  return (
+    <>
+      {parts.map((p, i) =>
+        p.startsWith('*') && p.endsWith('*') && p.length > 2 ? (
+          <em key={i} className="text-[var(--text-primary)]">
+            {p.slice(1, -1)}
+          </em>
+        ) : (
+          <span key={i}>{p}</span>
+        ),
+      )}
+    </>
+  )
+}
+
+/** Sakelar aksesibel (role="switch") untuk pengaturan. */
+export function Toggle({
+  checked,
+  onChange,
+  label,
+  hint,
+  disabled = false,
+}: {
+  checked: boolean
+  onChange: (value: boolean) => void
+  label: string
+  hint?: string
+  disabled?: boolean
+}) {
+  return (
+    <label
+      className={cx(
+        'flex touch-target cursor-pointer items-center justify-between gap-4 py-2',
+        disabled && 'cursor-not-allowed opacity-50',
+      )}
+    >
+      <span className="flex flex-col">
+        <span className="text-sm font-medium text-[var(--text-primary)]">{label}</span>
+        {hint && <span className="text-xs leading-snug text-[var(--text-secondary)]">{hint}</span>}
+      </span>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        aria-label={label}
+        disabled={disabled}
+        onClick={() => onChange(!checked)}
+        className={cx(
+          'relative h-7 w-12 shrink-0 rounded-full border transition-colors duration-fast',
+          checked
+            ? 'border-[color-mix(in_srgb,var(--team-offense)_60%,transparent)] bg-[color-mix(in_srgb,var(--team-offense)_30%,transparent)]'
+            : 'border-[var(--glass-border)] bg-[color-mix(in_srgb,var(--text-primary)_8%,transparent)]',
+        )}
+      >
+        <span
+          className="absolute top-1/2 h-5 w-5 -translate-y-1/2 rounded-full transition-[left,background] duration-fast ease-emphasis"
+          style={{
+            left: checked ? 'calc(100% - 1.375rem)' : '0.125rem',
+            background: checked ? 'var(--team-offense)' : 'var(--text-secondary)',
+          }}
+        />
+      </button>
+    </label>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
 /* Tombol ikon (kontrol pemutar)                                              */
 /* -------------------------------------------------------------------------- */
 
@@ -221,6 +375,42 @@ export function HexBadge({
     >
       <span className="hud text-sm font-bold">{label}</span>
     </button>
+  )
+}
+
+/**
+ * Segi enam dekoratif (bukan tombol) — dipakai di dalam elemen interaktif lain,
+ * tempat HexBadge (sebuah <button>) tidak boleh bersarang.
+ */
+export function HexMark({
+  label,
+  team = 'offense',
+  active = false,
+  size = 44,
+}: {
+  label: string
+  team?: 'offense' | 'defense'
+  active?: boolean
+  size?: number
+}) {
+  const color = team === 'offense' ? 'var(--team-offense)' : 'var(--team-defense)'
+  return (
+    <span
+      aria-hidden="true"
+      className={cx('relative inline-flex shrink-0 items-center justify-center', active && 'animate-pulse-halo')}
+      style={{
+        width: size,
+        height: size,
+        clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+        background: active
+          ? `color-mix(in srgb, ${color} 30%, var(--bg-void))`
+          : 'color-mix(in srgb, var(--text-primary) 6%, transparent)',
+        boxShadow: active ? `inset 0 0 0 2px ${color}` : 'inset 0 0 0 1px var(--glass-border)',
+        color: active ? color : 'var(--text-secondary)',
+      }}
+    >
+      <span className="hud text-sm font-bold">{label}</span>
+    </span>
   )
 }
 

@@ -78,15 +78,10 @@ export function LandingHero({ tactic, stats }: LandingHeroProps) {
   }, [reducedMotion])
 
   // Transisi POV mini: lencana di hero menunjukkan fitur pembeda langsung.
+  // Tanpa POV atau dengan Kurangi Gerak, blend diturunkan saat render (lihat
+  // `blend` di bawah) — efek ini hanya menganimasikan dolly 900 ms.
   useEffect(() => {
-    if (!pov) {
-      setPovBlend(0)
-      return
-    }
-    if (reducedMotion) {
-      setPovBlend(1)
-      return
-    }
+    if (!pov || reducedMotion) return
     let raf = 0
     const start = performance.now()
     const step = (now: number) => {
@@ -221,7 +216,7 @@ export function LandingHero({ tactic, stats }: LandingHeroProps) {
               ctx={ctx}
               clock={clock}
               layers={{ ...DEFAULT_LAYERS, labels: true }}
-              pov={{ playerId: pov, blend: povBlend }}
+              pov={{ playerId: pov, blend: !pov ? 0 : reducedMotion ? 1 : povBlend }}
               camera={camera}
               quality={quality}
               reducedMotion={reducedMotion}

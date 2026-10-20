@@ -16,7 +16,7 @@
  * fase yang diperbarui 12 atau 60 kali per detik, tetapi React bisa.
  */
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
   MasterClock,
@@ -105,7 +105,9 @@ export function useTacticPlayer({
 
   // Callback disimpan di ref agar efek langganan tidak dibuat ulang tiap render.
   const cbRef = useRef({ onPhaseChange, onDecisionEnter, onTacticEnd })
-  cbRef.current = { onPhaseChange, onDecisionEnter, onTacticEnd }
+  useLayoutEffect(() => {
+    cbRef.current = { onPhaseChange, onDecisionEnter, onTacticEnd }
+  })
 
   /* ---------------------------------------------------------------------- */
   /* Kurangi Gerak & siklus hidup jam                                       */
