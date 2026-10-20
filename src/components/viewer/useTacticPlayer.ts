@@ -28,7 +28,7 @@ import {
   type PlaybackSpeed,
   type StateContext,
   type Tactic,
-} from '@/engine'
+} from '@/engine/runtime'
 
 /** Frekuensi pembaruan state untuk komponen teks (Hz). */
 const TEXT_UPDATE_HZ = 12

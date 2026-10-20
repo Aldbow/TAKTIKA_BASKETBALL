@@ -8,7 +8,7 @@
 import Link from 'next/link'
 
 import { ALL_MODULES } from '@content/curriculum'
-import { CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine'
+import { CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine/runtime'
 import { MODULE_PASS_SCORE, moduleQuiz } from '@/lib/learning'
 import { useProgress } from '@/stores/progressStore'
 import { Chip, Icon, LevelMeter, SectionLabel } from '@/components/ui'

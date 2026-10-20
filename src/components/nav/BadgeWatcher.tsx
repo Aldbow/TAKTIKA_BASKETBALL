@@ -11,7 +11,6 @@
 import { useEffect, useState } from 'react'
 
 import { findBadge, type BadgeDef } from '@/lib/xp'
-import { isLevelDone } from '@/lib/learning'
 import { useProgressHydrated } from '@/lib/hydration'
 import { newlyEarnedBadges, useProgress, type ProgressState } from '@/stores/progressStore'
 
@@ -23,23 +22,32 @@ export function BadgeWatcher() {
 
   useEffect(() => {
     if (!hydrated) return
-    const check = (s: ProgressState) => {
-      const fresh = newlyEarnedBadges(s, {
-        level1Done: isLevelDone(s.lessons, 1),
-        level2Done: isLevelDone(s.lessons, 2),
-      })
-      if (fresh.length === 0) return
-      s.awardBadges(fresh)
-      const defs = fresh.map(findBadge).filter((b): b is BadgeDef => Boolean(b))
-      setQueue((q) => [...q, ...defs])
-    }
-    // Periksa sekali sesudah hidrasi (lencana yang layak tapi belum tercatat),
-    // lalu setiap kali progres berubah.
-    const id = window.setTimeout(() => check(useProgress.getState()), 0)
-    const off = useProgress.subscribe(check)
+    let off: (() => void) | null = null
+    let cancelled = false
+
+    // Kurikulum (untuk lencana level) dimuat terpisah: watcher ini ada di
+    // setiap halaman, termasuk landing yang tidak butuh kurikulum di muatan awal.
+    void import('@/lib/learning').then(({ isLevelDone }) => {
+      if (cancelled) return
+      const check = (s: ProgressState) => {
+        const fresh = newlyEarnedBadges(s, {
+          level1Done: isLevelDone(s.lessons, 1),
+          level2Done: isLevelDone(s.lessons, 2),
+        })
+        if (fresh.length === 0) return
+        s.awardBadges(fresh)
+        const defs = fresh.map(findBadge).filter((b): b is BadgeDef => Boolean(b))
+        setQueue((q) => [...q, ...defs])
+      }
+      // Periksa sekali (lencana yang layak tapi belum tercatat), lalu setiap
+      // kali progres berubah.
+      check(useProgress.getState())
+      off = useProgress.subscribe(check)
+    })
+
     return () => {
-      window.clearTimeout(id)
-      off()
+      cancelled = true
+      off?.()
     }
   }, [hydrated])
 

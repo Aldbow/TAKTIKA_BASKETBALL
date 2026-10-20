@@ -18,7 +18,7 @@
  * "bawaan" yang menonaktifkan grup — bukan cabang duplikat.
  */
 
-import { t as localize, type Branch, type Tactic } from '@/engine'
+import { t as localize, type Branch, type Tactic } from '@/engine/runtime'
 import { Icon, SectionLabel, cx } from '@/components/ui'
 
 const GROUP_META: Record<

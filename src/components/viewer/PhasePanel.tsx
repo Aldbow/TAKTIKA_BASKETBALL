@@ -9,7 +9,7 @@
  * teks tidak pernah berdiri sendiri tanpa animasi.
  */
 
-import { CATEGORY_LABEL, CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine'
+import { CATEGORY_LABEL, CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine/runtime'
 import { seconds } from '@/lib/format'
 import { Chip, Icon, LevelMeter, SectionLabel, cx } from '@/components/ui'
 

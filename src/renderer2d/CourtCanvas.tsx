@@ -27,8 +27,8 @@ import {
   type StateContext,
   type TacticEventBus,
   type Vec2,
-} from '@/engine'
-import { getState } from '@/engine'
+} from '@/engine/runtime'
+import { getState } from '@/engine/runtime'
 import { resolvePalette, renderQuality, type Palette, type QualityTier } from './palette'
 import {
   DEFAULT_CAMERA,

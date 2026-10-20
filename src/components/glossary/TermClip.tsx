@@ -12,7 +12,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import type { TermClip as TermClipData } from '@content/glossary'
-import { MasterClock, getStateContext, t as localize } from '@/engine'
+import { MasterClock, getStateContext, t as localize } from '@/engine/runtime'
 import { getTacticById } from '@/lib/content'
 import { CourtCanvas } from '@/renderer2d/CourtCanvas'
 import { DEFAULT_LAYERS, type LayerFlags } from '@/renderer2d/types'

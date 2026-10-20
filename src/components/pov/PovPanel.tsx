@@ -20,7 +20,7 @@ import {
   type PlayerId,
   type PovLens,
   type Tactic,
-} from '@/engine'
+} from '@/engine/runtime'
 import { CueCard, HexBadge, Icon, SectionLabel, cx } from '@/components/ui'
 
 export interface PovPanelProps {

@@ -12,7 +12,7 @@ import { useState } from 'react'
 
 import { findLesson } from '@content/curriculum'
 import { findTerm } from '@content/glossary'
-import { ROLE_LABEL, t as localize } from '@/engine'
+import { ROLE_LABEL, t as localize } from '@/engine/runtime'
 import { getTacticById } from '@/lib/content'
 import { lessonHref } from '@/lib/learning'
 import { BADGES, profileLevelFromXp } from '@/lib/xp'

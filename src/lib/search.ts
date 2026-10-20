@@ -8,7 +8,7 @@
  * yang langsung melayani anggaran JS PRD §15.
  */
 
-import { CATEGORY_LABEL, type TacticCategory } from '@/engine'
+import { CATEGORY_LABEL, type TacticCategory } from '@/engine/runtime'
 import { ALL_LESSONS } from '@content/curriculum'
 import { GLOSSARY } from '@content/glossary'
 import { TACTICS } from './content'

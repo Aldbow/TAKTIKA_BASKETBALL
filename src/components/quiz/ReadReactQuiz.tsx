@@ -31,7 +31,7 @@ import {
   type CourtTransform,
   type DecisionOption,
   type Tactic,
-} from '@/engine'
+} from '@/engine/runtime'
 import {
   branchesAfterChoice,
   explanationFor,

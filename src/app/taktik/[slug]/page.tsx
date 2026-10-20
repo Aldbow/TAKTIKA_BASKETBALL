@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { CATEGORY_LABEL, t as localize } from '@/engine'
+import { CATEGORY_LABEL, t as localize } from '@/engine/runtime'
 import { allTacticSlugs, getTacticBySlug } from '@/lib/content'
 import { TacticViewer } from '@/components/viewer/TacticViewer'
 

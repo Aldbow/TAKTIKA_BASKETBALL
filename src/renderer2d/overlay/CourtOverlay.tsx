@@ -16,8 +16,8 @@
 
 import { useMemo } from 'react'
 
-import { t as localize, toPx, type CourtTransform, type Vec2 } from '@/engine'
-import type { CourtState, Decision, PovLens } from '@/engine'
+import { t as localize, toPx, type CourtTransform, type Vec2 } from '@/engine/runtime'
+import type { CourtState, Decision, PovLens } from '@/engine/runtime'
 import type { QuizTarget } from '../types'
 
 export interface CourtOverlayProps {

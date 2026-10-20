@@ -12,8 +12,8 @@
  * segi enam tetap terbaca pada penglihatan warna apa pun dan saat dicetak.
  */
 
-import { facingToVector, lenPx, toPx, type CourtTransform, type Vec2 } from '@/engine'
-import type { PlayerState } from '@/engine'
+import { facingToVector, lenPx, toPx, type CourtTransform, type Vec2 } from '@/engine/runtime'
+import type { PlayerState } from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, type RenderFrame } from '../types'
 

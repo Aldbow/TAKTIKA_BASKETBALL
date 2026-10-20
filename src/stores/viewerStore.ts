@@ -11,7 +11,7 @@
 
 import { create } from 'zustand'
 
-import { normalizeActiveBranches, type PlayerId, type Tactic, type Vec2 } from '@/engine'
+import { normalizeActiveBranches, type PlayerId, type Tactic, type Vec2 } from '@/engine/runtime'
 import { DEFAULT_CAMERA, DEFAULT_LAYERS, type CameraState, type LayerFlags } from '@/renderer2d/types'
 import { track } from '@/lib/analytics'
 

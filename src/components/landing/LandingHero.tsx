@@ -13,15 +13,25 @@
  * kurang dari 60 detik. Karena itu animasi mulai berjalan TANPA klik apa pun.
  */
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import { MasterClock, getStateContext, playerLabel, t as localize, type PlayerId, type Tactic } from '@/engine'
-import { CourtCanvas } from '@/renderer2d/CourtCanvas'
-import { DEFAULT_LAYERS } from '@/renderer2d/types'
+import { playerLabel, t as localize } from '@/engine/labels'
+import type { PlayerId, Tactic } from '@/engine/runtime'
 import { effectiveQuality, effectiveReducedMotion, useSettings } from '@/stores/settingsStore'
-import { HexBadge, Icon, cx } from '@/components/ui'
+import { HexBadge, Icon, Skeleton, cx } from '@/components/ui'
 import { Logomark } from '@/components/nav/AppShell'
+
+/**
+ * Lapangan hero dimuat terpisah setelah halaman tampil — lihat HeroCourt.tsx.
+ * Skeleton A-20 mengisi tempatnya selama memuat, dengan rasio yang sama agar
+ * tidak ada pergeseran tata letak (CLS < 0,1, PRD §15).
+ */
+const HeroCourt = dynamic(() => import('./HeroCourt').then((m) => m.HeroCourt), {
+  ssr: false,
+  loading: () => <Skeleton className="absolute inset-0 rounded-none" />,
+})
 
 export interface LandingHeroProps {
   /** Taktik unggulan yang diputar di hero */
@@ -36,30 +46,8 @@ export function LandingHero({ tactic, stats }: LandingHeroProps) {
   const quality = effectiveQuality(settings)
 
   const [pov, setPov] = useState<PlayerId | null>(null)
-  const [povBlend, setPovBlend] = useState(0)
   const [scrollU, setScrollU] = useState(0)
   const heroRef = useRef<HTMLDivElement | null>(null)
-
-  const { ctx } = useMemo(() => getStateContext(tactic, []), [tactic])
-
-  const clock = useMemo(
-    () =>
-      new MasterClock({
-        duration: tactic.duration,
-        phases: tactic.phases,
-        decisions: tactic.decisions,
-        reducedMotion,
-        loop: true,
-      }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [tactic.id],
-  )
-
-  useEffect(() => {
-    clock.setReducedMotion(reducedMotion)
-    clock.play()
-    return () => clock.destroy()
-  }, [clock, reducedMotion])
 
   // A-21: hero terikat gulir. Zoom & fokus kamera bergeser halus saat halaman
   // digulir — padanan 2D dari "berputar dan miring".
@@ -77,35 +65,8 @@ export function LandingHero({ tactic, stats }: LandingHeroProps) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [reducedMotion])
 
-  // Transisi POV mini: lencana di hero menunjukkan fitur pembeda langsung.
-  // Tanpa POV atau dengan Kurangi Gerak, blend diturunkan saat render (lihat
-  // `blend` di bawah) — efek ini hanya menganimasikan dolly 900 ms.
-  useEffect(() => {
-    if (!pov || reducedMotion) return
-    let raf = 0
-    const start = performance.now()
-    const step = (now: number) => {
-      const u = Math.min(1, (now - start) / 900)
-      setPovBlend(u)
-      if (u < 1) raf = requestAnimationFrame(step)
-    }
-    raf = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(raf)
-  }, [pov, reducedMotion])
-
   const lens = pov ? tactic.povLenses.find((l) => l.playerId === pov) : undefined
   const offense = tactic.players.filter((p) => p.team === 'offense')
-
-  const camera = useMemo(
-    () => ({
-      mode: 'tactical' as const,
-      tilt: 0,
-      orbit: 0,
-      zoom: 1 + scrollU * 0.35,
-      focus: null,
-    }),
-    [scrollU],
-  )
 
   return (
     <div className="relative">
@@ -212,16 +173,12 @@ export function LandingHero({ tactic, stats }: LandingHeroProps) {
             className="relative overflow-hidden rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-void)]"
             style={{ aspectRatio: '4 / 3' }}
           >
-            <CourtCanvas
-              ctx={ctx}
-              clock={clock}
-              layers={{ ...DEFAULT_LAYERS, labels: true }}
-              pov={{ playerId: pov, blend: !pov ? 0 : reducedMotion ? 1 : povBlend }}
-              camera={camera}
-              quality={quality}
+            <HeroCourt
+              tactic={tactic}
+              pov={pov}
+              scrollU={scrollU}
               reducedMotion={reducedMotion}
-              className="absolute inset-0"
-              ariaLabel={`Pratinjau animasi taktik ${localize(tactic.title)}`}
+              quality={quality}
             />
             <div className="pointer-events-none absolute left-3 top-3">
               <p

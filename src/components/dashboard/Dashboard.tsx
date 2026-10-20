@@ -13,7 +13,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
-import { CATEGORY_LABEL, CATEGORY_TOKEN, ROLE_LABEL, t as localize } from '@/engine'
+import { CATEGORY_LABEL, CATEGORY_TOKEN, ROLE_LABEL, t as localize } from '@/engine/runtime'
 import { getTacticById, recommendedForRole, tacticOfTheDay } from '@/lib/content'
 import {
   lessonHref,

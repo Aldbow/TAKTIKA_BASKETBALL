@@ -7,7 +7,7 @@
  * lintasan sendiri.
  */
 
-import { lenPx, rimPosition, toPx } from '@/engine'
+import { lenPx, rimPosition, toPx } from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, hashSeed, seededRandom, type RenderFrame } from '../types'
 

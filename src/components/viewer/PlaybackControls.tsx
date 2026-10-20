@@ -8,7 +8,7 @@
  * pengguna menemukan pintasan tanpa membaca dokumentasi (PRD §11 tabel pintasan).
  */
 
-import { SPEED_STEPS, type PlaybackSpeed } from '@/engine'
+import { SPEED_STEPS, type PlaybackSpeed } from '@/engine/runtime'
 import { speedLabel } from '@/lib/format'
 import { Icon, IconButton, cx } from '@/components/ui'
 

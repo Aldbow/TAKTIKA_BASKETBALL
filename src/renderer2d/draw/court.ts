@@ -27,7 +27,7 @@ import {
   toPx,
   type CourtTransform,
   type Vec2,
-} from '@/engine'
+} from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, type RenderFrame } from '../types'
 

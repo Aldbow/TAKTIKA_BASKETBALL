@@ -13,8 +13,7 @@
  * dengan fetch ke CDN tanpa mengubah API modul ini.
  */
 
-import { parseTactic } from '@/engine'
-import type { Tactic, TacticCategory } from '@/engine'
+import type { Tactic, TacticCategory } from '@/engine/runtime'
 
 import setSpainPnr from '@content/tactics/set-spain-pnr.json'
 import offSpreadPnr from '@content/tactics/off-spread-pnr.json'
@@ -36,8 +35,16 @@ const RAW = [
   specialBlobBox,
 ] as const
 
-/** Semua taktik, sudah diparse & divalidasi skemanya. */
-export const TACTICS: Tactic[] = RAW.map((r) => parseTactic(r))
+/**
+ * Semua taktik.
+ *
+ * JSON taktik disimpan dalam bentuk KANONIK — identik dengan hasil
+ * `TacticSchema.parse` (semua default sudah terisi). Itu dijaga oleh test
+ * src/lib/__tests__/content-canon.test.ts, sehingga parse Zod tidak perlu
+ * dijalankan di perangkat pengguna: tidak mengunduh Zod, dan tidak membayar
+ * parse 8 taktik setiap kali halaman dimuat.
+ */
+export const TACTICS: Tactic[] = RAW as unknown as Tactic[]
 
 const BY_ID = new Map(TACTICS.map((t) => [t.id, t]))
 const BY_SLUG = new Map(TACTICS.map((t) => [t.slug, t]))

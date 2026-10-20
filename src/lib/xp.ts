@@ -7,7 +7,7 @@
  * diprediksi berhenti terasa seperti hadiah.
  */
 
-import { ROLE_LABEL, type Role } from '@/engine'
+import { ROLE_LABEL, type Role } from '@/engine/runtime'
 
 export const XP = {
   lessonComplete: 20,

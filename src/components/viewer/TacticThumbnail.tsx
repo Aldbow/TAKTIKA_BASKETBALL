@@ -16,7 +16,7 @@
 
 import { useEffect, useMemo, useRef } from 'react'
 
-import { MasterClock, getStateContext, type Tactic } from '@/engine'
+import { MasterClock, getStateContext, type Tactic } from '@/engine/runtime'
 import { useIsClient } from '@/lib/hydration'
 import { CourtCanvas } from '@/renderer2d/CourtCanvas'
 import { DEFAULT_LAYERS } from '@/renderer2d/types'

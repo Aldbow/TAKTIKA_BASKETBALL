@@ -8,7 +8,7 @@
 import Link from 'next/link'
 
 import type { ModuleNode } from '@content/curriculum'
-import { CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine'
+import { CATEGORY_TOKEN, t as localize, type Tactic } from '@/engine/runtime'
 import {
   MODULE_PASS_SCORE,
   lessonHref,

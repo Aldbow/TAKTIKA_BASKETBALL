@@ -16,7 +16,7 @@
 
 import { useCallback, useMemo, useRef } from 'react'
 
-import { CATEGORY_TOKEN, t as localize, type Decision, type Phase, type TacticCategory } from '@/engine'
+import { CATEGORY_TOKEN, t as localize, type Decision, type Phase, type TacticCategory } from '@/engine/runtime'
 import { clockTime } from '@/lib/format'
 import { cx } from '@/components/ui'
 

@@ -12,7 +12,7 @@
 
 import { useMemo, useState } from 'react'
 
-import { playerLabel, t as localize, type Tactic } from '@/engine'
+import { playerLabel, t as localize, type Tactic } from '@/engine/runtime'
 import { track } from '@/lib/analytics'
 import { Icon, LinkButton, PillButton, SectionLabel } from '@/components/ui'
 

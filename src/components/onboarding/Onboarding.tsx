@@ -12,7 +12,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { ROLE_LABEL } from '@/engine'
+import { ROLE_LABEL } from '@/engine/runtime'
 import { suggestedStart } from '@/lib/learning'
 import { useProgress, type OnboardingAnswers } from '@/stores/progressStore'
 import { HexMark, Icon, LinkButton, cx } from '@/components/ui'

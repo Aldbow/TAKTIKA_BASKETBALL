@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { t as localize } from '@/engine'
+import { t as localize } from '@/engine/runtime'
 import { allTacticSlugs, getTacticBySlug } from '@/lib/content'
 import { ReadReactQuiz } from '@/components/quiz/ReadReactQuiz'
 

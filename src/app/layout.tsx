@@ -5,6 +5,7 @@ import '@/styles/globals.css'
 import { AppShell } from '@/components/nav/AppShell'
 import { SettingsEffects } from '@/components/nav/SettingsEffects'
 import { BadgeWatcher } from '@/components/nav/BadgeWatcher'
+import { PerfHud } from '@/components/nav/PerfHud'
 
 /**
  * Tipografi PRD §9:
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SettingsEffects />
         <AppShell>{children}</AppShell>
         <BadgeWatcher />
+        <PerfHud />
       </body>
     </html>
   )

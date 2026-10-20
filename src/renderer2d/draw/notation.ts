@@ -26,8 +26,8 @@ import {
   toPx,
   type CourtTransform,
   type Vec2,
-} from '@/engine'
-import type { ActiveEvent } from '@/engine'
+} from '@/engine/runtime'
+import type { ActiveEvent } from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, type RenderFrame } from '../types'
 

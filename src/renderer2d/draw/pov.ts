@@ -11,7 +11,7 @@
  * layar); yang digambar di canvas adalah garis penunjuk ke pemain terkait.
  */
 
-import { getPredictionPath, lenPx, toPx } from '@/engine'
+import { getPredictionPath, lenPx, toPx } from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, type RenderFrame } from '../types'
 import { tokenRadius } from './players'

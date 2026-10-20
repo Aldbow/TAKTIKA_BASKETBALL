@@ -21,7 +21,7 @@ import {
   t as localize,
   type Tactic,
   type TacticCategory,
-} from '@/engine'
+} from '@/engine/runtime'
 import { FILTER_CATEGORIES, FILTER_LEVELS, FILTER_POSITIONS, search } from '@/lib/search'
 import { useProgress } from '@/stores/progressStore'
 import { Chip, Icon, LevelMeter, cx } from '@/components/ui'

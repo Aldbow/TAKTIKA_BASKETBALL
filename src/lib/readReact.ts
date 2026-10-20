@@ -15,7 +15,7 @@ import {
   type DecisionOption,
   type Scenario,
   type Tactic,
-} from '@/engine'
+} from '@/engine/runtime'
 
 export interface ResolvedScenario {
   scenario: Scenario

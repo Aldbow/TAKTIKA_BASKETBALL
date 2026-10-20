@@ -14,7 +14,15 @@ import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Icon, cx } from '@/components/ui'
-import { search, type SearchResult } from '@/lib/search'
+import type { SearchResult } from '@/lib/search'
+
+/**
+ * Indeks pencarian memuat SEMUA taktik (beserta parse skemanya), glosarium,
+ * dan kurikulum. Komponen ini ada di shell setiap halaman, jadi indeks dimuat
+ * baru saat pengguna fokus ke kolom pencarian — bukan di muatan awal halaman
+ * (PRD §15: JS awal landing <= 200 KB gzip).
+ */
+type SearchFn = typeof import('@/lib/search').search
 
 const KIND_LABEL: Record<SearchResult['kind'], string> = {
   tactic: 'Taktik',
@@ -35,10 +43,18 @@ export function GlobalSearch({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = useState(0)
   const inputRef = useRef<HTMLInputElement | null>(null)
   const wrapRef = useRef<HTMLDivElement | null>(null)
+  const [searchFn, setSearchFn] = useState<SearchFn | null>(null)
+  const loadingRef = useRef(false)
+
+  const loadIndex = useCallback(() => {
+    if (loadingRef.current) return
+    loadingRef.current = true
+    void import('@/lib/search').then((m) => setSearchFn(() => m.search))
+  }, [])
 
   const results = useMemo(
-    () => (query.trim().length === 0 ? [] : search(query, {}, 8)),
-    [query],
+    () => (!searchFn || query.trim().length === 0 ? [] : searchFn(query, {}, 8)),
+    [query, searchFn],
   )
 
   // Pintasan global "/" untuk membuka pencarian.
@@ -50,12 +66,13 @@ export function GlobalSearch({ compact = false }: { compact?: boolean }) {
       if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return
       if (target?.isContentEditable) return
       e.preventDefault()
+      loadIndex()
       setOpen(true)
       requestAnimationFrame(() => inputRef.current?.focus())
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [loadIndex])
 
   // Tutup saat klik di luar.
   useEffect(() => {
@@ -140,11 +157,15 @@ export function GlobalSearch({ compact = false }: { compact?: boolean }) {
           placeholder="Cari taktik, istilah…"
           value={query}
           onChange={(e) => {
+            loadIndex()
             setQuery(e.target.value)
             setActive(0)
             setOpen(true)
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            loadIndex()
+            setOpen(true)
+          }}
           onKeyDown={onKeyDown}
           className="min-w-0 flex-1 bg-transparent text-sm text-[var(--text-primary)] outline-none placeholder:text-[var(--text-secondary)]"
         />
@@ -164,7 +185,9 @@ export function GlobalSearch({ compact = false }: { compact?: boolean }) {
             {results.length} hasil untuk {query}
           </p>
 
-          {results.length === 0 ? (
+          {!searchFn ? (
+            <p className="px-3 py-3 text-sm text-[var(--text-secondary)]">Memuat indeks…</p>
+          ) : results.length === 0 ? (
             <p className="px-3 py-3 text-sm text-[var(--text-secondary)]">
               Tidak ada hasil untuk “{query}”.
             </p>

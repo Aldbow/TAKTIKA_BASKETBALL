@@ -26,10 +26,10 @@ import {
   type PlayerId,
   type Tactic,
   type Vec2,
-} from '@/engine'
+} from '@/engine/runtime'
 import { CourtCanvas } from '@/renderer2d/CourtCanvas'
 import { CourtOverlay } from '@/renderer2d/overlay/CourtOverlay'
-import type { CourtTransform } from '@/engine'
+import type { CourtTransform } from '@/engine/runtime'
 import { effectiveQuality, effectiveReducedMotion, useSettings } from '@/stores/settingsStore'
 import { useProgress } from '@/stores/progressStore'
 import { useViewer } from '@/stores/viewerStore'

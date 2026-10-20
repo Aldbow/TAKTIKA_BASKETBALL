@@ -9,8 +9,8 @@
  * (PRD §10 "Orkestrasi").
  */
 
-import type { CourtTransform, PlayerId, Vec2 } from '@/engine'
-import type { CourtState, StateContext } from '@/engine'
+import type { CourtTransform, PlayerId, Vec2 } from '@/engine/runtime'
+import type { CourtState, StateContext } from '@/engine/runtime'
 import type { Palette, RenderQuality } from './palette'
 
 /** Ke-8 lapisan visual yang bisa dinyalakan/dimatikan — F-11. */

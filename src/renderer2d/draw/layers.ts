@@ -9,7 +9,7 @@
  *   A-16 Jalur umpan    — berkas cahaya, lebar = tingkat keamanan, merah bila terhalang
  */
 
-import { facingToVector, getTrail, lenPx, toPx, type Vec2 } from '@/engine'
+import { facingToVector, getTrail, lenPx, toPx, type Vec2 } from '@/engine/runtime'
 import { withAlpha } from '../palette'
 import { ease, type RenderFrame } from '../types'
 import { playerAlpha, tokenRadius } from './players'
